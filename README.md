@@ -20,3 +20,6 @@ Now we can start installing the requirements for our project.
 
 
 [![Build Status](https://travis-ci.org/LWanjiru/ki-news.svg?branch=master)](https://travis-ci.org/LWanjiru/ki-news)
+[![Code Climate](https://codeclimate.com/github/LWanjiru/ki-news/badges/gpa.svg)](https://codeclimate.com/github/LWanjiru/ki-news)
+[![Test Coverage](https://codeclimate.com/github/LWanjiru/ki-news/badges/coverage.svg)](https://codeclimate.com/github/LWanjiru/ki-news/coverage)
+[![Issue Count](https://codeclimate.com/github/LWanjiru/ki-news/badges/issue_count.svg)](https://codeclimate.com/github/LWanjiru/ki-news)
