@@ -15,24 +15,8 @@ Now we can start installing the requirements for our project.
 
 ### Requirements
 ---
-#### ESLint
 
-##### Installing
-1. Run:
-` $ npm install --save-dev eslint` or use `$ npm install -g eslint` to install the package globally.
 
-2. Running the `$ eslint --init` command allows to configure eslint for your project, through a guided prompt.
 
-For this project, we will use it to configure *Use a popular style guide*, *Airbnb*, *React* and our config file will be in the *JSON* format. 
 
-After following this guide, a `.eslintrc.json` file will be created in our root folder, containing the following configurations;
-```javascript
-{
-    "extends": "airbnb",
-    "plugins": [
-        "react",
-        "jsx-a11y",
-        "import"
-    ]
-}
-```
+[![Build Status](https://travis-ci.org/LWanjiru/ki-news.svg?branch=master)](https://travis-ci.org/LWanjiru/ki-news)
