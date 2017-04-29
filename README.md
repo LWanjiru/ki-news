@@ -23,3 +23,4 @@ Now we can start installing the requirements for our project.
 [![Code Climate](https://codeclimate.com/github/LWanjiru/ki-news/badges/gpa.svg)](https://codeclimate.com/github/LWanjiru/ki-news)
 [![Test Coverage](https://codeclimate.com/github/LWanjiru/ki-news/badges/coverage.svg)](https://codeclimate.com/github/LWanjiru/ki-news/coverage)
 [![Issue Count](https://codeclimate.com/github/LWanjiru/ki-news/badges/issue_count.svg)](https://codeclimate.com/github/LWanjiru/ki-news)
+[![Coverage Status](https://coveralls.io/repos/github/LWanjiru/ki-news/badge.svg?branch=master)](https://coveralls.io/github/LWanjiru/ki-news?branch=master)
