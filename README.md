@@ -15,7 +15,7 @@ Now we can start installing the requirements for our project.
 
 ### Requirements
 ---
-ESLint
+#### ESLint
 
 ##### Installing
 1. Run:
