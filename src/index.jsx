@@ -1,1 +1,1 @@
-console.log('hey, I did it!');
+console.log('This should appear in the console');

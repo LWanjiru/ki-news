@@ -2,10 +2,11 @@
   "name": "ki-all-news",
   "version": "1.0.0",
   "description": "Know It All News: Be in the know of what's happening around the world!",
-  "main": "./src/index.js",
+  "main": "./src/app.jsx",
   "scripts": {
-    "start": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "jest": "^19.0.2",
+    "react-hot-loader": "^3.0.0-beta.6",
     "react-test-renderer": "^15.5.4",
     "webpack-dev-server": "^2.4.5"
   },
@@ -44,6 +46,7 @@
     "path": "^0.12.7",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-router": "^4.1.1",
     "webpack": "^2.4.1"
   }
 }
