@@ -1,18 +1,9 @@
 language: node_js
 node_js:
-  - '7'
   - '6'
-env:
-  - CXX=g++-4.8
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
+
 script:
-  - ESlint
-  - npm test
+ - npm test
 
 before_install:
   npm install
