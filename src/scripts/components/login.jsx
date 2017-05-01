@@ -13,7 +13,6 @@ export default class Login extends Component {
             and be informed on what is happening around the world.
             To continue to the News page, please Login below.
           </p>
-          <p> add this line to test</p>
         </div>
         <div><button>Signin with Google+</button></div>
       </div>
