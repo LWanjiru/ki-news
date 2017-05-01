@@ -7,3 +7,7 @@ script:
 
 before_install:
   npm install
+
+  addons:
+    code_climate:
+        repo_token: 63dd40111983a5eb2e793fff88842e5936ec04c113d117202d387f392e9fd863

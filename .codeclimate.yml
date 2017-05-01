@@ -1,6 +1,10 @@
 engines:
   eslint:
     enabled: true
-  config:
-      languages:
-      - javascript
+config:
+  JavaScript:
+    enabled: true
+
+exclude_paths:
+- test/**/*
+- vendor/**/*
