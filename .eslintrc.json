@@ -1,8 +1,11 @@
 {
     "extends": "airbnb",
-     "env": {
-         "jest": true
-     },
+    "ecmaFeatures": {
+          "jsx": true
+    },
+    "env": {
+        "jest": true
+    },
     "plugins": [
         "react",
         "jsx-a11y",
