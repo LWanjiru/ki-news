@@ -5,7 +5,7 @@
   "main": "./src/app.jsx",
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --hot",
     "build": "webpack"
   },
   "repository": {
@@ -24,6 +24,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
     "coveralls": "^2.13.1",
+    "css-loader": "^0.28.1",
     "enzyme": "^2.8.2",
     "enzyme-to-json": "^1.5.1",
     "eslint": "^3.19.0",
@@ -31,9 +32,13 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
+    "extract-text-webpack-plugin": "^2.1.0",
     "jest": "^19.0.2",
+    "node-sass": "^4.5.2",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-test-renderer": "^15.5.4",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.17.0",
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
@@ -47,6 +52,6 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router": "^4.1.1",
-    "webpack": "^2.4.1"
+    "webpack": "^2.5.0"
   }
 }
