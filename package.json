@@ -2,7 +2,7 @@
   "name": "ki-all-news",
   "version": "1.0.0",
   "description": "Know It All News: Be in the know of what's happening around the world!",
-  "main": "./src/app.jsx",
+  "main": "./src/index.jsx",
   "scripts": {
     "test": "jest",
     "start": "webpack-dev-server --hot",

@@ -20,12 +20,16 @@ const config = {
   module: {
     rules: [
       { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
+      
+      // Extract CSS
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
           loader: 'css-loader?importLoaders=1',
         }),
       },
+      
+      // Extract SASS/SCSS
       {
         test: /\.(sass|scss)$/,
         loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
