@@ -2,11 +2,12 @@
   "name": "ki-all-news",
   "version": "1.0.0",
   "description": "Know It All News: Be in the know of what's happening around the world!",
-  "main": "./src/index.jsx",
+  "main": "./src/main.js",
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --hot",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "npm run build && webpack-dev-server --hot"
+    
   },
   "repository": {
     "type": "git",

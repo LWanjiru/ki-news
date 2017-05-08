@@ -1,6 +1,5 @@
 //colors
-$violet: violet;
-$white: white;;
+$black: black;
 
 //fonts
 $font_0: Courier New;
@@ -8,10 +7,5 @@ $font_1: Courier;
 $font_2: monospace;
 
 body {
-	background-color: $violet;
-	font-family: $font_0, $font_1, $font_2;
-}
-.heading {
-	color: $white;
-	font-family: $font_0, $font_1, $font_2;
+	background-color: blueviolet;
 }

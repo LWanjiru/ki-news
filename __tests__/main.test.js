@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Index from '../src/index';
+import Main from '../src/main';
 
-describe('Index page contents', () => {
-  const wrapper = shallow(<Index />);
+describe('Main page contents', () => {
+  const wrapper = shallow(<Main />);
   it('Should have a div present', () => {
     const divs = wrapper.find('div');
     expect(divs.length).toBe(1);

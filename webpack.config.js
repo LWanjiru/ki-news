@@ -4,35 +4,46 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
   entry: [
-    './src/index.jsx',
+    './src/main.js',
     './public/stylesheets/index.scss',
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.bundle.js',
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './src/index.html',
     }),
-    new ExtractTextPlugin({ filename: 'index.bundle.css', allChunks: true }),
+    new ExtractTextPlugin({
+      filename: getPath => getPath('index.scss').replace('scss', 'css'),
+      allChunks: true,
+    }),
   ],
   module: {
     rules: [
       { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
-      
+
       // Extract CSS
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          loader: 'css-loader?importLoaders=1',
+        use: ExtractTextPlugin.extract({
+          use: 'css-loader?importLoaders=1',
         }),
       },
-      
+
       // Extract SASS/SCSS
       {
         test: /\.(sass|scss)$/,
-        loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
+        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
+      },
+      //
+      {
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?v=.+)?$/,
+        use: ['file?hash=sha512&digest=hex&name=[hash].[ext]',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
+        ],
       },
     ],
   },
