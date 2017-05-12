@@ -1,2 +1,27 @@
 body {
-  background-color: green; }
+  background-color: white;
+  padding-top: 0px;
+  padding-bottom: 40px; }
+  body .header {
+    height: 150px;
+    color: white;
+    background-color: black;
+    border-width: 5px;
+    border-style: outset;
+    border-color: whitesmoke; }
+  body .left {
+    font-size: 20px;
+    color: whitesmoke;
+    float: left;
+    width: 250px;
+    background: black;
+    border-width: 5px;
+    border-style: outset; }
+    body .left h1 {
+      text-align: center;
+      text-decoration: underline;
+      -webkit-text-fill-color: darkgreen; }
+    body .left .sources ul {
+      border: 2px;
+      border-color: green;
+      background-color: black; }

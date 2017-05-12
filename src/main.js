@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import Login from './scripts/components/login';
+import React from 'react';
+import { render } from 'react-dom';
+import SourceList from './scripts/components/sources/Sources';
+// import Login from './scripts/components/login/login';
 
-export default class Main extends Component {
-  // componentWillMount() {
+const Main = () => (
+  <div>
+    <SourceList />
+  </div>
+  );
 
-  // }
-  render() {
-    return (
-      <div>
-        <Login />
-      </div>
-    );
-  }
-}
+export default Main;
+
+render(<SourceList />, document.getElementById('root'));
