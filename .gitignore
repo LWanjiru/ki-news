@@ -2,3 +2,5 @@ node_modules
 .github
 npm-debug.log
 .vscode
+favicon
+coverage
