@@ -8,12 +8,12 @@ describe('Main page contents', () => {
     const divs = wrapper.find('div');
     expect(divs.length).toBe(1);
   });
-  it('Should have a title', () => {
-    const titles = wrapper.find('title');
-    expect(titles.length).toBe(1);
-  });
-  it('Should have a heading', () => {
-    const h1s = wrapper.find('h1');
-    expect(h1s.length).toBe(1);
-  })
+  // it('Should have a title', () => {
+  //   const titles = wrapper.find('title');
+  //   expect(titles.length).toBe(1);
+  // });
+  // it('Should have a heading', () => {
+  //   const h1s = wrapper.find('h1');
+  //   expect(h1s.length).toBe(1);
+  // })
 });

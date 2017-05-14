@@ -8,6 +8,12 @@
     "build": "webpack",
     "start": "npm run build && webpack-dev-server --hot"
   },
+  "jest": {
+  "unmockedModulePathPatterns": [
+    "node_modules/react/",
+    "node_modules/enzyme/"
+  ]
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LWanjiru/ki-news.git"
@@ -51,6 +57,7 @@
     "html-webpack-plugin": "^2.28.0",
     "newsapi": "^1.0.2",
     "path": "^0.12.7",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-google-login-component": "^0.7.0",

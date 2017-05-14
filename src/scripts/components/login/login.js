@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { GoogleLogin } from 'react-google-login-component';
 
 export default class Login extends Component {
-
+ // generate a token when a user signs in
   responseGoogle() {
-    // generate a token when a user signs in
     const idToken = this.googleUser.getAuthResponse().id_token;
-    // test that the token is generated
-    console.log({ accessToken: idToken });
+    // save the generated token
+    this.googleUser.save({ accessToken: idToken });
+    console.log(this.googleUser);
   }
   render() {
     return (
@@ -17,7 +17,7 @@ export default class Login extends Component {
           class="google-login"
           scope="profile"
           responseHandler={this.responseGoogle}
-          buttonText="Login With Google+"
+          buttonText="Login"
         />
       </div>
     );
