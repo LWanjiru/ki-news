@@ -11,9 +11,5 @@
         "react",
         "jsx-a11y",
         "import"
-    ],
-    "rules": {   
-    // allow JSX in files with '.js' extension
-    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
-    }
+    ]
 }
