@@ -10169,7 +10169,7 @@ var Articles = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'div',
-                { className: 'story-pics' },
+                { className: 'card col-xs-12 col-sm-6 col-md-4 m-2' },
                 _react2.default.createElement(
                   'a',
                   { href: article.url, rel: 'noopener noreferrer', target: '_blank' },

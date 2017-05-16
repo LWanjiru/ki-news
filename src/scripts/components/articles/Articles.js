@@ -19,9 +19,13 @@ export default class Articles extends React.Component {
         {this.props.articles && this.props.articles.map((article, index) => (
           <div className="art" key={index}>
             <ul>
-              <div className="story-pics">
+              <div className="card-block">
                 <a href={article.url} rel="noopener noreferrer" target="_blank" >
-                  <h3><img src={article.urlToImage} alt="story" />{article.title}</h3></a>
+                  <h3 className="card-title">
+                    <img src={article.urlToImage} alt="story" />
+                    {article.title}
+                  </h3>
+                </a>
                 {article.description}
               </div>
             </ul>

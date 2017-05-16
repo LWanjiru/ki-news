@@ -2,8 +2,6 @@ engines:
   eslint:
     enabled:true
 
-Javascript: true
-
 exclude_paths:
 - _test_/**/*
 - vendor/**/*
