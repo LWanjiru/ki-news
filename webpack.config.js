@@ -12,6 +12,10 @@ const config = {
     filename: 'index.bundle.js',
     publicPath: '/',
   },
+  // Import files without having to include suffix
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -23,6 +27,7 @@ const config = {
   ],
   module: {
     rules: [
+      // Match both .js and .jsx when compiling
       { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
 
       // Extract CSS
@@ -40,6 +45,7 @@ const config = {
       },
       //
       {
+        // Extract images
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?v=.+)?$/,
         use: ['file?hash=sha512&digest=hex&name=[hash].[ext]',
           'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SourceList from './Sources.jsx';
 
 export default class Articles extends React.Component {
   /**
@@ -14,19 +15,22 @@ export default class Articles extends React.Component {
 
   render() {
     return (
-      <div id="main" className="stories">
-        <a href="/"><h1>Headlines</h1></a>
+      <div id="main" className="card">
+        <h1>Headlines</h1>
+        <span><input placeholder="Search" />
+            <button>Go!</button>
+        </span><br />
         {this.props.articles && this.props.articles.map((article, index) => (
-          <div className="art" key={index}>
+          <div className="" key={index}>
             <ul>
-              <div className="card-block">
-                <a href={article.url} rel="noopener noreferrer" target="_blank" >
+              <div className="">
+                <a href={article.url} rel="noopener noreferrer" target="blank" >
                   <h3 className="card-title">
-                    <img src={article.urlToImage} alt="story" />
                     {article.title}
                   </h3>
+                  <img src={article.urlToImage} width="500" alt="story" />
                 </a>
-                {article.description}
+                <p className="card-text">{article.description}</p>
               </div>
             </ul>
           </div>))}
