@@ -6732,13 +6732,9 @@ var _react = __webpack_require__(17);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _superagent = __webpack_require__(193);
+var _propTypes = __webpack_require__(107);
 
-var _superagent2 = _interopRequireDefault(_superagent);
-
-var _Articles = __webpack_require__(87);
-
-var _Articles2 = _interopRequireDefault(_Articles);
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6748,169 +6744,83 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import SearchSources from './../search/searchSources';
+// import SourceList from './Sources';
 
-
-var SourceList = function (_Component) {
-  _inherits(SourceList, _Component);
+var Articles = function (_Component) {
+  _inherits(Articles, _Component);
 
   /**
-   * Creates an instance of SourceList.
+   * Creates an instance of Articles.
    *
-   * @memberof SourceList
+   * @memberof Articles
    */
-  function SourceList() {
-    _classCallCheck(this, SourceList);
+  function Articles() {
+    _classCallCheck(this, Articles);
 
-    var _this = _possibleConstructorReturn(this, (SourceList.__proto__ || Object.getPrototypeOf(SourceList)).call(this));
+    var _this = _possibleConstructorReturn(this, (Articles.__proto__ || Object.getPrototypeOf(Articles)).call(this));
 
-    _this.state = { sourceId: [], articles: null };
-    _this.onSubmit = _this.onSubmit.bind(_this);
-    _this.fetchArticles = _this.fetchArticles.bind(_this);
+    _this.state = {};
     return _this;
   }
 
-  _createClass(SourceList, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      this.fetchDefaultSources();
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.fetchDefaultArticles();
-    }
-  }, {
-    key: 'fetchDefaultSources',
-    value: function fetchDefaultSources() {
-      var _this2 = this;
-
-      // Called the first time the component is loaded right before the component is added to the page
-      // Get a list of sources
-      var url = 'https://newsapi.org/v1/sources';
-      _superagent2.default.get(url).then(function (response) {
-        _this2.setState({
-          sources: response.body.sources
-        });
-      });
-    }
-  }, {
-    key: 'fetchDefaultArticles',
-    value: function fetchDefaultArticles() {
-      var _this3 = this;
-
-      // Called after the component has been rendered into the page
-      // Fetch articles using the given parameters from the specified source
-      var url = 'https://newsapi.org/v1/articles?source=bbc-sport&sortBy=top&apiKey=213327409d384371851777e7c7f78dfe';
-      _superagent2.default.get(url).then(function (response) {
-        _this3.setState({
-          articles: response.body.articles
-        });
-      });
-    }
-  }, {
-    key: 'onSubmit',
-    value: function onSubmit(id) {
-      var _this4 = this;
-
-      // Change the state when the button is clicked
-      this.setState({ sourceId: id }, function () {
-        _this4.fetchArticles();
-      });
-    }
-  }, {
-    key: 'fetchArticles',
-    value: function fetchArticles() {
-      var _this5 = this;
-
-      // Fetch for articles related to the respective sourceId when called
-      var url = 'https://newsapi.org/v1/articles?source=' + this.state.sourceId + '&apiKey=213327409d384371851777e7c7f78dfe';
-      _superagent2.default.get(url).then(function (response) {
-        _this5.setState({
-          articles: response.body.articles
-        });
-      });
-    }
-  }, {
-    key: 'searchSources',
-    value: function searchSources(input) {
-      var name = this.sourceName;
-      console.log();
-    }
-  }, {
+  _createClass(Articles, [{
     key: 'render',
     value: function render() {
-      var _this6 = this;
-
-      var sources = { sources: sources };
       return _react2.default.createElement(
         'div',
-        { className: 'row' },
+        { id: 'main', className: 'card' },
         _react2.default.createElement(
-          'div',
-          { className: 'col-sm-2' },
-          _react2.default.createElement(
-            'div',
-            { className: 'card card-group' },
-            _react2.default.createElement(
-              'h4',
-              null,
-              _react2.default.createElement(
-                'a',
-                { href: '/' },
-                'News Sources'
-              )
-            ),
-            _react2.default.createElement(
-              'span',
-              null,
-              _react2.default.createElement('input', { placeholder: 'Search', ref: function ref(input) {
-                  return _this6.sourceName = input;
-                } }),
-              _react2.default.createElement(
-                'button',
-                { className: 'btn', onClick: function onClick() {
-                    _this6.searchSources.bind(_this6);
-                  } },
-                'Go!'
-              )
-            ),
-            this.state.sources && this.state.sources.map(function (source) {
-              return _react2.default.createElement(
-                'div',
-                { className: 'card', key: source.id },
-                _react2.default.createElement(
-                  'button',
-                  { onClick: function onClick() {
-                      _this6.onSubmit(source.id);
-                    } },
-                  _react2.default.createElement(
-                    'ul',
-                    null,
-                    _react2.default.createElement(
-                      'h4',
-                      { className: 'card-title' },
-                      source.name
-                    )
-                  )
-                )
-              );
-            })
-          )
+          'h1',
+          null,
+          'Headlines'
         ),
         _react2.default.createElement(
           'div',
-          { className: 'w-75' },
-          this.state.articles && _react2.default.createElement(_Articles2.default, { articles: this.state.articles })
-        )
+          { className: '' },
+          _react2.default.createElement('iframe', { href: '/Articles', name: 'iframe_a', allowFullScreen: true })
+        ),
+        this.props.articles && this.props.articles.map(function (article, index) {
+          return _react2.default.createElement(
+            'div',
+            { className: '', key: index },
+            _react2.default.createElement(
+              'ul',
+              null,
+              _react2.default.createElement(
+                'div',
+                { className: '' },
+                _react2.default.createElement(
+                  'a',
+                  { href: article.url, rel: 'noopener noreferrer', target: 'iframe_a' },
+                  _react2.default.createElement(
+                    'h3',
+                    { className: 'card-title' },
+                    article.title
+                  ),
+                  _react2.default.createElement('img', { src: article.urlToImage, width: '500', alt: 'story' })
+                ),
+                _react2.default.createElement(
+                  'p',
+                  { className: 'card-text' },
+                  article.description
+                ),
+                _react2.default.createElement('br', null)
+              )
+            )
+          );
+        })
       );
     }
   }]);
 
-  return SourceList;
+  return Articles;
 }(_react.Component);
 
-exports.default = SourceList;
+exports.default = Articles;
+
+Articles.propTypes = {
+  articles: _propTypes2.default.arrayOf(String)
+};
 
 /***/ }),
 /* 54 */
@@ -10256,12 +10166,6 @@ module.exports = getIteratorFn;
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = __webpack_require__(17);
 
 var _react2 = _interopRequireDefault(_react);
@@ -10274,39 +10178,7 @@ var _App2 = _interopRequireDefault(_App);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Main = function (_Component) {
-  _inherits(Main, _Component);
-
-  function Main() {
-    _classCallCheck(this, Main);
-
-    return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
-  }
-
-  _createClass(Main, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'app' },
-        _react2.default.createElement(_App2.default, null)
-      );
-    }
-  }]);
-
-  return Main;
-}(_react.Component);
-
-exports.default = Main;
-
-
-(0, _reactDom.render)(_react2.default.createElement(Main, null), document.getElementById('root'));
+(0, _reactDom.render)(_react2.default.createElement(_App2.default, null), document.getElementById('root'));
 
 /***/ }),
 /* 85 */
@@ -10329,17 +10201,17 @@ var _react = __webpack_require__(17);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Header = __webpack_require__(88);
+var _Header = __webpack_require__(87);
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _Sources = __webpack_require__(53);
+var _Sources = __webpack_require__(89);
 
 var _Sources2 = _interopRequireDefault(_Sources);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var App = function displayComponents() {
+var App = function App() {
   return _react2.default.createElement(
     'div',
     { className: 'app-source' },
@@ -10375,123 +10247,13 @@ var _react = __webpack_require__(17);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(107);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _Sources = __webpack_require__(53);
-
-var _Sources2 = _interopRequireDefault(_Sources);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Articles = function (_React$Component) {
-  _inherits(Articles, _React$Component);
-
-  /**
-   * Creates an instance of Articles.
-   *
-   * @memberof Articles
-   */
-  function Articles() {
-    _classCallCheck(this, Articles);
-
-    var _this = _possibleConstructorReturn(this, (Articles.__proto__ || Object.getPrototypeOf(Articles)).call(this));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(Articles, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { id: 'main', className: 'card' },
-        _react2.default.createElement(
-          'h1',
-          null,
-          'Headlines'
-        ),
-        _react2.default.createElement(
-          'span',
-          null,
-          _react2.default.createElement('input', { placeholder: 'Search' }),
-          _react2.default.createElement(
-            'button',
-            null,
-            'Go!'
-          )
-        ),
-        _react2.default.createElement('br', null),
-        this.props.articles && this.props.articles.map(function (article, index) {
-          return _react2.default.createElement(
-            'div',
-            { className: '', key: index },
-            _react2.default.createElement(
-              'ul',
-              null,
-              _react2.default.createElement(
-                'div',
-                { className: '' },
-                _react2.default.createElement(
-                  'a',
-                  { href: article.url, rel: 'noopener noreferrer', target: 'blank' },
-                  _react2.default.createElement(
-                    'h3',
-                    { className: 'card-title' },
-                    article.title
-                  ),
-                  _react2.default.createElement('img', { src: article.urlToImage, width: '500', alt: 'story' })
-                ),
-                _react2.default.createElement(
-                  'p',
-                  { className: 'card-text' },
-                  article.description
-                )
-              )
-            )
-          );
-        })
-      );
-    }
-  }]);
-
-  return Articles;
-}(_react2.default.Component);
-
-exports.default = Articles;
-
-Articles.propTypes = {
-  articles: _propTypes2.default.arrayOf(String).isRequired
-};
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(17);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Login = __webpack_require__(89);
+var _Login = __webpack_require__(88);
 
 var _Login2 = _interopRequireDefault(_Login);
+
+var _Articles = __webpack_require__(53);
+
+var _Articles2 = _interopRequireDefault(_Articles);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10519,18 +10281,28 @@ var Header = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'navbar-toggler-right' },
-          _react2.default.createElement(
-            'span',
-            null,
-            _react2.default.createElement(_Login2.default, null)
-          )
+          _react2.default.createElement(_Login2.default, null)
         ),
         _react2.default.createElement(
           'a',
           { className: 'navbar-brand', href: '/' },
-          _react2.default.createElement('img', { src: './../../../../public/logo.jpg', width: '30', height: '30', className: 'card-inline-block align-top', alt: 'page logo' }),
-          _react2.default.createElement('br', null),
-          'KI-All News'
+          _react2.default.createElement('img', { src: './../../../../public/logo.jpg', width: '20', height: '20', className: 'card-inline-block align-top', alt: 'page logo' }),
+          '\xA0 ',
+          _react2.default.createElement(
+            'strong',
+            null,
+            'KI-All News'
+          )
+        ),
+        _react2.default.createElement(
+          'a',
+          { className: 'nav-item nav-link', href: '#' },
+          'Home'
+        ),
+        _react2.default.createElement(
+          'a',
+          { className: 'nav-item nav-link', href: _Articles2.default },
+          'View'
         )
       );
     }
@@ -10542,7 +10314,7 @@ var Header = function (_Component) {
 exports.default = Header;
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10571,18 +10343,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Login = function (_Component) {
   _inherits(Login, _Component);
 
-  function Login() {
+  // generate a token when a user signs in
+  function Login(props, context) {
     _classCallCheck(this, Login);
 
-    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props, context));
   }
 
   _createClass(Login, [{
     key: 'responseGoogle',
-
-    // generate a token when a user signs in
     value: function responseGoogle() {
       var idToken = this.googleUser.getAuthResponse().idToken;
+      console.log(idToken);
     }
   }, {
     key: 'render',
@@ -10605,6 +10377,205 @@ var Login = function (_Component) {
 }(_react.Component);
 
 exports.default = Login;
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(17);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = __webpack_require__(193);
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+var _Articles = __webpack_require__(53);
+
+var _Articles2 = _interopRequireDefault(_Articles);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SourceList = function (_Component) {
+  _inherits(SourceList, _Component);
+
+  /**
+   * Creates an instance of SourceList.
+   *
+   * @memberof SourceList
+   */
+  function SourceList() {
+    _classCallCheck(this, SourceList);
+
+    var _this = _possibleConstructorReturn(this, (SourceList.__proto__ || Object.getPrototypeOf(SourceList)).call(this));
+
+    _this.state = {
+      sources: [],
+      search: '',
+      sourceId: [],
+      articles: null
+    };
+
+    _this.onSubmit = _this.onSubmit.bind(_this);
+    _this.updateSearch = _this.updateSearch.bind(_this);
+    _this.fetchArticles = _this.fetchArticles.bind(_this);
+    return _this;
+  }
+
+  _createClass(SourceList, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.fetchDefaultSources();
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.fetchDefaultArticles();
+    }
+  }, {
+    key: 'onSubmit',
+    value: function onSubmit(id) {
+      var _this2 = this;
+
+      // Change the state when the button is clicked
+      this.setState({ sourceId: id }, function () {
+        _this2.fetchArticles();
+      });
+    }
+  }, {
+    key: 'fetchDefaultSources',
+    value: function fetchDefaultSources() {
+      var _this3 = this;
+
+      // Called the first time the component is loaded right before the component is added to the page
+      // Get a list of sources
+      var url = 'https://newsapi.org/v1/sources';
+      _superagent2.default.get(url).then(function (response) {
+        _this3.setState({
+          sources: response.body.sources
+        });
+      });
+    }
+  }, {
+    key: 'fetchDefaultArticles',
+    value: function fetchDefaultArticles() {
+      var _this4 = this;
+
+      // Called after the component has been rendered into the page
+      // Fetch articles using the given parameters from the specified source
+      var url = 'https://newsapi.org/v1/articles?source=bbc-sport&sortBy=top&apiKey=213327409d384371851777e7c7f78dfe';
+      _superagent2.default.get(url).then(function (response) {
+        _this4.setState({
+          articles: response.body.articles
+        });
+      });
+    }
+  }, {
+    key: 'fetchArticles',
+    value: function fetchArticles() {
+      var _this5 = this;
+
+      // Fetch for articles related to the respective sourceId when called
+      var url = 'https://newsapi.org/v1/articles?source=' + this.state.sourceId + '&apiKey=213327409d384371851777e7c7f78dfe';
+      _superagent2.default.get(url).then(function (response) {
+        _this5.setState({
+          articles: response.body.articles
+        });
+      });
+    }
+  }, {
+    key: 'updateSearch',
+    value: function updateSearch(event) {
+      this.setState({
+        search: event.target.value
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this6 = this;
+
+      var foundSource = this.state.sources.filter(function (source) {
+        return source.name.toLowerCase().indexOf(_this6.state.search.toLowerCase()) !== -1;
+      });
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement(
+          'div',
+          { className: 'col-sm-2' },
+          _react2.default.createElement(
+            'div',
+            { className: 'card card-group' },
+            _react2.default.createElement(
+              'h4',
+              null,
+              _react2.default.createElement(
+                'a',
+                { href: '/' },
+                'News Sources'
+              )
+            ),
+            _react2.default.createElement('input', {
+              type: 'text',
+              className: 'form-control btn btn-success',
+              placeholder: 'Search Sources',
+              value: this.state.search,
+              onChange: this.updateSearch
+            }),
+            _react2.default.createElement('br', null),
+            this.state.sources && foundSource.map(function (source) {
+              return _react2.default.createElement(
+                'div',
+                { className: 'card', key: source.id },
+                _react2.default.createElement(
+                  'button',
+                  { onClick: function onClick() {
+                      _this6.onSubmit(source.id);
+                    } },
+                  _react2.default.createElement(
+                    'ul',
+                    null,
+                    _react2.default.createElement(
+                      'h4',
+                      { className: 'card-title' },
+                      source.name
+                    )
+                  )
+                )
+              );
+            })
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'w-75' },
+          this.state.articles && _react2.default.createElement(_Articles2.default, { articles: this.state.articles })
+        )
+      );
+    }
+  }]);
+
+  return SourceList;
+}(_react.Component);
+
+exports.default = SourceList;
 
 /***/ }),
 /* 90 */

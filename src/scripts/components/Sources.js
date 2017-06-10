@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Request from 'superagent';
-import Articles from './Articles.jsx';
-// import SearchSources from './../search/searchSources';
-
+import Articles from './Articles';
 
 export default class SourceList extends Component {
   /**
@@ -12,17 +10,30 @@ export default class SourceList extends Component {
    */
   constructor() {
     super();
-    this.state = { sourceId: [], articles: null };
+    this.state = {
+      sources: [],
+      search: '',
+      sourceId: [],
+      articles: null,
+    };
+
     this.onSubmit = this.onSubmit.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
     this.fetchArticles = this.fetchArticles.bind(this);
   }
-
   componentWillMount() {
     this.fetchDefaultSources();
   }
 
   componentDidMount() {
     this.fetchDefaultArticles();
+  }
+
+  onSubmit(id) {
+  // Change the state when the button is clicked
+    this.setState({ sourceId: id }, () => {
+      this.fetchArticles();
+    });
   }
 
   fetchDefaultSources() {
@@ -47,13 +58,6 @@ export default class SourceList extends Component {
     });
   }
 
-  onSubmit(id) {
-  // Change the state when the button is clicked
-    this.setState({ sourceId: id }, () => {
-      this.fetchArticles();
-    });
-  }
-
   fetchArticles() {
       // Fetch for articles related to the respective sourceId when called
     const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&apiKey=213327409d384371851777e7c7f78dfe`;
@@ -64,40 +68,49 @@ export default class SourceList extends Component {
     });
   }
 
-  searchSources(input){
-    let name = this.sourceName
-    console.log()
+  updateSearch(event) {
+    this.setState({
+      search: event.target.value,
+    });
   }
 
   render() {
-    let sources = {sources}
+    const foundSource = this.state.sources.filter(
+      source => source.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1,
+      );
+
     return (
       <div className="row">
-      <div className="col-sm-2">
-        <div className="card card-group">
-          <h4><a href="/">News Sources</a></h4>
-          <span><input placeholder="Search" ref={(input) => this.sourceName = input}/>
-            <button className="btn" onClick={() => {this.searchSources.bind(this)}}>Go!</button>
-          </span>
-          {/* <SearchSources />*/}
-          {/* check the current state of sources and pass them into a function for rendering*/}
-          {this.state.sources && this.state.sources.map(source => (
-            <div className="card" key={source.id}>
-              <button onClick={() => { this.onSubmit(source.id); }}>
-                <ul>
-                  {/* button action calls the onSubmit function which changes the state*/}
-                  <h4 className="card-title">{source.name}</h4>
-                </ul>
-              </button>
-            </div>
+        <div className="col-sm-2">
+          <div className="card card-group">
+            <h2><a href="/">News Sources</a></h2>
+            <span>
+              <input
+                type="text"
+                className="form-control btn btn-outline-info"
+                placeholder="Search Sources"
+                value={this.state.search}
+                onChange={this.updateSearch}
+              />
+            </span><br /><br />
+            {/* check the current state of sources and pass them into a function for rendering*/}
+            {this.state.sources && foundSource.map(source => (
+              <div className="card" key={source.id}>
+                <button onClick={() => { this.onSubmit(source.id); }}>
+                  <ul>
+                    {/* button action calls the onSubmit function which changes the state*/}
+                    <h4 className="card-title">{source.name}</h4>
+                  </ul>
+                </button>
+              </div>
             ))}
+          </div>
         </div>
-      </div>
         <div className="w-75">
           {/* check if the articles exist and render them*/}
           {this.state.articles && <Articles articles={this.state.articles} />}
         </div>
-        </div>
+      </div>
     );
   }
 }

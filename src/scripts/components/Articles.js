@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import SourceList from './Sources.jsx';
+// import SourceList from './Sources';
 
-export default class Articles extends React.Component {
+export default class Articles extends Component {
   /**
    * Creates an instance of Articles.
    *
@@ -10,27 +10,29 @@ export default class Articles extends React.Component {
    */
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      articles: [],
+    };
   }
 
   render() {
     return (
       <div id="main" className="card">
         <h1>Headlines</h1>
-        <span><input placeholder="Search" />
-            <button>Go!</button>
-        </span><br />
-        {this.props.articles && this.props.articles.map((article, index) => (
-          <div className="" key={index}>
+        <div className="">
+          <iframe href="/Articles" name="iframe_a" /><br /><br />
+        </div>
+        {this.props.articles && this.props.articles.map(article => (
+          <div className="" key={article.title}>
             <ul>
               <div className="">
-                <a href={article.url} rel="noopener noreferrer" target="blank" >
+                <a href={article.url} rel="noopener noreferrer" target="iframe_a" >
                   <h3 className="card-title">
                     {article.title}
                   </h3>
                   <img src={article.urlToImage} width="500" alt="story" />
                 </a>
-                <p className="card-text">{article.description}</p>
+                <p className="card-text">{article.description}</p><br />
               </div>
             </ul>
           </div>))}
