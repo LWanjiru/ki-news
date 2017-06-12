@@ -3,13 +3,9 @@ import { GoogleLogin } from 'react-google-login-component';
 
 export default class Login extends Component {
  // generate a token when a user signs in
- constructor(props, context) {
-   super(props, context);
- }
-
   responseGoogle() {
     const idToken = this.googleUser.getAuthResponse().idToken;
-    console.log(idToken);
+    return (idToken);
   }
   render() {
     return (

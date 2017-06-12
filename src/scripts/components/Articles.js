@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import SourceList from './Sources';
 
 export default class Articles extends Component {
   /**
@@ -26,7 +25,7 @@ export default class Articles extends Component {
           <div className="" key={article.title}>
             <ul>
               <div className="">
-                <a href={article.url} rel="noopener noreferrer" target="iframe_a" >
+                <a href={article.url} rel="noopener noreferrer" onClick="" target="_top" >
                   <h3 className="card-title">
                     {article.title}
                   </h3>
