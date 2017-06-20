@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show Iframe (Snapshot) renders an iframe 1`] = `
+<div
+  className="embed-responsive embed-responsive-16by9"
+>
+  <iframe
+    name="iframe_a"
+  />
+</div>
+`;

@@ -3,4 +3,5 @@ favicon
 .vscode
 .github
 .coverage
-
+.react-playground
+dist

@@ -11,15 +11,11 @@ const Header = () => {
       <a className="navbar-brand" href="/">
         <img
           src="./../../../../public/logo.jpg"
-          width="20"
-          height="20"
           className="card-inline-block align-top"
           alt="page logo"
         />
         <strong>{header}</strong>
       </a>
-      <a className="nav-item nav-link" href="/">Home</a>
-      <a className="nav-item nav-link" href="">View</a>
     </nav>
   );
 };

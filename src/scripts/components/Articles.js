@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ShowArticle from './showArticle';
 
 export default class Articles extends Component {
   /**
@@ -15,23 +16,23 @@ export default class Articles extends Component {
   }
 
   render() {
+    const articleHeadline = 'Articles';
+    const imageWidth = 400;
     return (
-      <div id="main" className="card">
-        <h1>Headlines</h1>
-        <div className="">
-          <iframe href="/Articles" name="iframe_a" /><br /><br />
-        </div>
+      <div className="card">
+        <h1 className="articles">{articleHeadline}</h1>
+        <ShowArticle /><br />
         {this.props.articles && this.props.articles.map(article => (
           <div className="" key={article.title}>
             <ul>
               <div className="">
-                <a href={article.url} rel="noopener noreferrer" onClick="" target="_top" >
+                <a href={article.url} target="iframe_a" >
                   <h3 className="card-title">
                     {article.title}
                   </h3>
-                  <img src={article.urlToImage} width="500" alt="story" />
+                  <img src={article.urlToImage} width={imageWidth} alt="story" />
                 </a>
-                <p className="card-text">{article.description}</p><br />
+                <p className="card-text">{article.description}</p>
               </div>
             </ul>
           </div>))}

@@ -22,7 +22,7 @@ export default class SourceList extends Component {
     this.fetchArticles = this.fetchArticles.bind(this);
   }
   componentWillMount() {
-    this.fetchDefaultSources();
+    this.fetchSources();
   }
 
   componentDidMount() {
@@ -36,7 +36,7 @@ export default class SourceList extends Component {
     });
   }
 
-  fetchDefaultSources() {
+  fetchSources() {
     // Called the first time the component is loaded right before the component is added to the page
     // Get a list of sources
     const url = 'https://newsapi.org/v1/sources';
@@ -75,15 +75,15 @@ export default class SourceList extends Component {
   }
 
   render() {
-    const foundSource = this.state.sources.filter(
+    const sourceFound = this.state.sources.filter(
       source => source.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1,
       );
-
+    const topHeading = 'News Source';
     return (
       <div className="row">
         <div className="col-sm-2">
           <div className="card card-group">
-            <h2><a href="/">News Sources</a></h2>
+            <h2><a href="/">{topHeading}</a></h2>
             <span>
               <input
                 type="text"
@@ -94,7 +94,7 @@ export default class SourceList extends Component {
               />
             </span><br /><br />
             {/* check the current state of sources and pass them into a function for rendering*/}
-            {this.state.sources && foundSource.map(source => (
+            {this.state.sources && sourceFound.map(source => (
               <div className="card" key={source.id}>
                 <button onClick={() => { this.onSubmit(source.id); }}>
                   <ul>
