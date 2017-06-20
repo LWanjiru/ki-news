@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1497946900677" clover="3.2.0">
+  <project timestamp="1497946900677" name="All files">
+    <metrics statements="50" coveredstatements="25" conditionals="8" coveredconditionals="4" methods="27" coveredmethods="10" elements="85" coveredelements="39" complexity="0" loc="50" ncloc="50" packages="1" files="7" classes="7">
+      <file name="App.js" path="/Users/linnettewanjiru/Desktop/ki-news/src/scripts/components/App.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+      <file name="Articles.js" path="/Users/linnettewanjiru/Desktop/ki-news/src/scripts/components/Articles.js">
+        <metrics statements="7" coveredstatements="6" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="2"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="43" count="3" type="stmt"/>
+      </file>
+      <file name="Header.js" path="/Users/linnettewanjiru/Desktop/ki-news/src/scripts/components/Header.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+      <file name="Login.js" path="/Users/linnettewanjiru/Desktop/ki-news/src/scripts/components/Login.js">
+        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+      </file>
+      <file name="Sources.js" path="/Users/linnettewanjiru/Desktop/ki-news/src/scripts/components/Sources.js">
+        <metrics statements="25" coveredstatements="11" conditionals="4" coveredconditionals="3" methods="16" coveredmethods="4"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+      </file>
+      <file name="showArticle.js" path="/Users/linnettewanjiru/Desktop/ki-news/src/scripts/components/showArticle.js">
+        <metrics statements="8" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+      <file name="showIframe.js" path="/Users/linnettewanjiru/Desktop/ki-news/src/scripts/components/showIframe.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+    </metrics>
+  </project>
+</coverage>

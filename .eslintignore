@@ -1,0 +1,7 @@
+node_modules
+favicon
+.vscode
+.github
+.coverage
+.react-playground
+dist

@@ -4,22 +4,25 @@ Know It All News: Be in the know of what's happening around the world!
 ---
 ### Getting Started
 ---
-These instructions are intended to help you start building a similar project from scratch.
+This is a front-end application that takes advantage of the functionalities NewsAPI provides. The application should be similar to a modern RSS feed that allows you to view all headlines from different news sources and link to the original articles/news on those sources.
 
-We will be setting up and building a test-driven front-end application that takes advantage of the functionalities NewsAPI provides. The application should be similar to a modern RSS feed that allows you to view all headlines from different news sources and link to the original articles/news on those sources.
-
-Start by creating a local directory for your project, by running `$ mkdir my-project && cd my-project` in the command line.
-Then run `$ npm init` to create a `package.json` file (This is the file that helps you manage locally installed npm packages for your project.)
-
-Now we can start installing the requirements for our project.
-
+To clone this repository and run the app from your computer
+```
+$ git clone https://github.com/LWanjiru/ki-news.git
+```
 ### Requirements
 ---
+After cloning the repository, run the following commands 
+
+`$ npm install` and then;
+`$ yarn add`
+
+This will install all the depencencies.
 
 
 
 
-[![Build Status](https://travis-ci.org/LWanjiru/ki-news.svg?branch=master)](https://travis-ci.org/LWanjiru/ki-news)
+[![Build Status](https://travis-ci.org/LWanjiru/ki-news.svg?branch=feature%2F144583299%2Fwrite-tests-for-components)](https://travis-ci.org/LWanjiru/ki-news)
 [![Code Climate](https://codeclimate.com/github/LWanjiru/ki-news/badges/gpa.svg)](https://codeclimate.com/github/LWanjiru/ki-news)
 [![Test Coverage](https://codeclimate.com/github/LWanjiru/ki-news/badges/coverage.svg)](https://codeclimate.com/github/LWanjiru/ki-news/coverage)
 [![Issue Count](https://codeclimate.com/github/LWanjiru/ki-news/badges/issue_count.svg)](https://codeclimate.com/github/LWanjiru/ki-news)
