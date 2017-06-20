@@ -30,7 +30,7 @@ export default class Articles extends Component {
                   <h3 className="card-title">
                     {article.title}
                   </h3>
-                  <img src={article.urlToImage} width={imageWidth} alt="story" />
+                  <img src={article.urlToImage} width={imageWidth} alt="storyImg" />
                 </a>
                 <p className="card-text">{article.description}</p>
               </div>
