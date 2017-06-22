@@ -11,7 +11,7 @@
     "test": "jest",
     "build": "webpack",
     "heroku-prebuild": " yarn install",
-    "start": "npm run build && webpack-dev-server --hot"
+    "start": "npm run build"
   },
   "jest": {
     "unmockedModulePathPatterns": [
@@ -75,7 +75,7 @@
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
     "superagent": "^3.5.2",
-    "webpack": "^2.5.0",
-    "webpack-dev-server": "^2.4.5"
+    "webpack": "^2.5.0"
+    // "webpack-dev-server": "^2.4.5"
   }
 }
