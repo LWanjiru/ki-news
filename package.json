@@ -10,6 +10,7 @@
     "lint": "eslint *.json",
     "test": "jest",
     "build": "webpack",
+    "heroku-prebuild": " yarn install",
     "start": "npm run build && webpack-dev-server --hot"
   },
   "jest": {
