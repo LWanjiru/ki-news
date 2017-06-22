@@ -5,11 +5,11 @@
   "main": "./src/main.js",
   "engines": {
     "node": "6.10.2"
-    },
+  },
   "scripts": {
     "lint": "eslint *.json",
     "test": "jest",
-    "build": "webpack",
+    "build": "webpack --config webpack.config.js -p",
     "heroku-prebuild": " yarn install",
     "start": "npm run build"
   },
@@ -54,11 +54,12 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "appcache-webpack-plugin": "^1.3.0",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1", 
-    "css-loader": "^0.28.1",  
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.1",
     "enzyme": "^2.8.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "flux": "^3.1.2",
@@ -75,7 +76,7 @@
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
     "superagent": "^3.5.2",
-    "webpack": "^2.5.0"
-    // "webpack-dev-server": "^2.4.5"
+    "webpack": "^2.5.0",
+    "webpack-dev-server": "^2.4.5"
   }
 }

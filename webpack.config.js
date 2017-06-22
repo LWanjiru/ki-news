@@ -1,6 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const AppCachePlugin = require('appcache-webpack-plugin');
 
 const config = {
   entry: [
@@ -19,11 +21,16 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      inject: true,
     }),
     new ExtractTextPlugin({
       filename: getPath => getPath('index.scss').replace('scss', 'css'),
       allChunks: true,
     }),
+    new AppCachePlugin({
+      exclude: ['.htaccess'],
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
   ],
   module: {
     rules: [
