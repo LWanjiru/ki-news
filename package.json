@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "Know It All News: Be in the know of what's happening around the world!",
   "main": "./src/main.js",
+  "engines": {
+    "node": "6.10.2"
+    },
   "scripts": {
     "lint": "eslint *.json",
     "test": "jest",
     "build": "webpack",
-    "start": "npm webpack-dev-server --hot"
+    "start": "npm run build && webpack-dev-server --hot"
   },
   "jest": {
     "unmockedModulePathPatterns": [
