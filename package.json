@@ -72,6 +72,8 @@
     "react-dom": "^15.5.4",
     "react-google-login-component": "^0.7.0",
     "react-router": "^4.1.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.17.0",
     "superagent": "^3.5.2",
     "webpack": "^2.5.0"
   }
