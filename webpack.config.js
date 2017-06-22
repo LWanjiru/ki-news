@@ -12,7 +12,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.bundle.js',
-    publicPath: '/',
+    publicPath: 'http://ki-all-news.herokuapp.com',
   },
   // Import files without having to include suffix
   resolve: {
