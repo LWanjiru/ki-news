@@ -7,7 +7,7 @@
     "lint": "eslint *.json",
     "test": "jest",
     "build": "webpack",
-    "start": "npm run build && webpack-dev-server --hot"
+    "start": "npm run && webpack-dev-server --hot"
   },
   "jest": {
     "unmockedModulePathPatterns": [
