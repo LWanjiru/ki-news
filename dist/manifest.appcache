@@ -1,9 +1,9 @@
 CACHE MANIFEST
-# 423a2da89dc3316fd178
+# f74a74ff82544a5a4c73
 
-/index.bundle.js
-/index.css
-/index.html
+index.bundle.js
+index.css
+index.html
 
 NETWORK:
 *

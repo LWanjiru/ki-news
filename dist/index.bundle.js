@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 208);
@@ -9985,7 +9985,7 @@ var SourceList = function (_Component) {
     value: function fetchArticles() {
       var _this4 = this;
 
-      // Fetch default articles from the specified source and sorting
+      // Fetch for articles related to the respective sourceId when called
       var url = 'https://newsapi.org/v1/articles?source=' + this.state.sourceId + '&sortBy=top&apiKey=213327409d384371851777e7c7f78dfe';
       _superagent2.default.get(url).then(function (response) {
         _this4.setState({
@@ -9993,16 +9993,6 @@ var SourceList = function (_Component) {
         });
       });
     }
-
-    // // Fetch for articles related to the respective sourceId when called
-    // fetchArticles() {
-    //   // const url = `https://newsapi.org/v1/articles?source=&apiKey=213327409d384371851777e7c7f78dfe`;
-    //   Request.get(url).then((response) => {
-    //     this.setState({
-    //       articles: response.body.articles,
-    //     });
-    //   });
-    // }
 
     // Handle the actions that occur when the filter parameters are specified
 
@@ -10057,6 +10047,7 @@ var SourceList = function (_Component) {
       });
       var topHeading = 'News Sources';
       var filtering = 'Filter by:';
+
       return _react2.default.createElement(
         'div',
         { className: 'row' },
@@ -10095,46 +10086,42 @@ var SourceList = function (_Component) {
             _react2.default.createElement('br', null),
             _react2.default.createElement(
               'div',
-              { className: '' },
+              { className: 'form-control btn-outline-info' },
               _react2.default.createElement(
-                'div',
-                { className: 'form-control btn-outline-info' },
-                _react2.default.createElement(
-                  'h6',
-                  null,
-                  filtering
-                ),
-                _react2.default.createElement(
-                  'select',
-                  {
-                    className: 'form-control btn- mb-2',
-                    name: 'filterKey',
-                    onChange: this.handleChangeCategory,
-                    defaultValue: this.state.currentFilter.filterKey
-                  },
-                  Object.keys(this.state.filters).map(function (key) {
-                    return _react2.default.createElement(
-                      'option',
-                      { key: key, value: key },
-                      key
-                    );
-                  })
-                ),
-                _react2.default.createElement(
-                  'select',
-                  {
-                    className: 'form-control c-select',
-                    name: 'filterValue',
-                    defaultValue: this.state.currentFilter.filterValue
-                  },
-                  Object.keys(this.state.filters[this.state.currentFilter.filterKey]).map(function (key) {
-                    return _react2.default.createElement(
-                      'option',
-                      { key: key, value: key },
-                      key
-                    );
-                  })
-                )
+                'h6',
+                null,
+                filtering
+              ),
+              _react2.default.createElement(
+                'select',
+                {
+                  className: 'form-control btn- mb-2',
+                  name: 'filterKey',
+                  onChange: this.handleChangeCategory,
+                  defaultValue: this.state.currentFilter.filterKey
+                },
+                Object.keys(this.state.filters).map(function (key) {
+                  return _react2.default.createElement(
+                    'option',
+                    { key: key, value: key },
+                    key
+                  );
+                })
+              ),
+              _react2.default.createElement(
+                'select',
+                {
+                  className: 'form-control c-select',
+                  name: 'filterValue',
+                  defaultValue: this.state.currentFilter.filterValue
+                },
+                Object.keys(this.state.filters[this.state.currentFilter.filterKey]).map(function (key) {
+                  return _react2.default.createElement(
+                    'option',
+                    { key: key, value: key },
+                    key
+                  );
+                })
               )
             ),
             _react2.default.createElement('br', null),
