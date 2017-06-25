@@ -1,1 +1,1 @@
-web: ./bin/www npm start
+web: ./dist npm start
