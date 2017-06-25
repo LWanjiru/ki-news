@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { PropTypes } from 'prop-types';
 import ShowArticle from './showArticle';
 
 export default class Articles extends Component {
@@ -8,8 +8,8 @@ export default class Articles extends Component {
    *
    * @memberof Articles
    */
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [],
     };
@@ -17,29 +17,32 @@ export default class Articles extends Component {
 
   render() {
     const articleHeadline = 'Articles';
-    const imageWidth = 400;
+    const imageWidth = 300;
     return (
-      <div className="card">
-        <h1 className="articles">{articleHeadline}</h1>
+      <div className="articles">
+        <a href="/" ><h1 className="heading">{articleHeadline}</h1></a>
         <ShowArticle /><br />
-        {this.props.articles && this.props.articles.map(article => (
-          <div className="" key={article.title}>
-            <ul>
-              <div className="">
-                <a href={article.url} target="iframe_a" >
-                  <h3 className="card-title">
-                    {article.title}
-                  </h3>
-                  <img src={article.urlToImage} width={imageWidth} alt="storyImg" />
-                </a>
-                <p className="card-text">{article.description}</p>
-              </div>
-            </ul>
-          </div>))}
+        <div className="row">
+          {this.props.articles && this.props.articles.map(article => (
+            <div className="card-group col-sm-6" key={article.title}>
+              <ul>
+                <div className="card-block">
+                  <a href={article.url} target="iframe_a" >
+                    <h3 className="card-title">
+                      {article.title}
+                    </h3>
+                    <img src={article.urlToImage} width={imageWidth} alt="storyImg" />
+                  </a><br />
+                  <p className="text-left">{article.description}</p>
+                </div>
+              </ul>
+            </div>))}
+        </div>
       </div>
     );
   }
 }
 Articles.propTypes = {
-  articles: PropTypes.arrayOf(String).isRequired,
+  articles: PropTypes.arrayOf(String),
 };
+Articles.defaultProps = null;

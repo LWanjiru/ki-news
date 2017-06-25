@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const AppCachePlugin = require('appcache-webpack-plugin');
@@ -12,7 +11,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.bundle.js',
-    publicPath: 'http://ki-all-news.herokuapp.com',
+    publicPath: '/',
   },
   // Import files without having to include suffix
   resolve: {
@@ -30,7 +29,6 @@ const config = {
     new AppCachePlugin({
       exclude: ['.htaccess'],
     }),
-    new webpack.optimize.UglifyJsPlugin(),
   ],
   module: {
     rules: [

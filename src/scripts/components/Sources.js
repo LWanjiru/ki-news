@@ -2,6 +2,33 @@ import React, { Component } from 'react';
 import Request from 'superagent';
 import Articles from './Articles';
 
+const FILTERS = {
+  country: {
+    au: 'au',
+    de: 'de',
+    gb: 'gb',
+    in: 'in',
+    it: 'it',
+    us: 'us',
+  },
+  language: {
+    de: 'de',
+    en: 'en',
+    fr: 'fr',
+  },
+  category: {
+    business: 'business',
+    entertainment: 'entertainment',
+    gaming: 'gaming',
+    general: ' general',
+    music: 'music',
+    politics: 'politics',
+    science_and_nature: 'science-and-nature',
+    sport: 'sport',
+    technology: 'technology',
+  },
+};
+
 export default class SourceList extends Component {
   /**
    * Creates an instance of SourceList.
@@ -15,41 +42,44 @@ export default class SourceList extends Component {
       search: '',
       sourceId: [],
       articles: null,
+      currentFilter: {
+        filterKey: 'language',
+        filterValue: 'en',
+      },
+      filters: FILTERS,
     };
 
     this.onSubmit = this.onSubmit.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
     this.fetchArticles = this.fetchArticles.bind(this);
-  }
-  componentWillMount() {
-    this.fetchSources();
+    this.fetchSources = this.fetchSources.bind(this);
+    this.handleChangeCategory = this.handleChangeCategory.bind(this);
   }
 
-  componentDidMount() {
+  // Called before the render method is executed
+  componentWillMount() {
+    this.fetchSources();
     this.fetchDefaultArticles();
   }
 
+  // Call the fetchArticles function when source state changes
   onSubmit(id) {
-  // Change the state when the button is clicked
     this.setState({ sourceId: id }, () => {
       this.fetchArticles();
     });
   }
 
+  // Get a list of sources using the provided filtering parameters
   fetchSources() {
-    // Called the first time the component is loaded right before the component is added to the page
-    // Get a list of sources
-    const url = 'https://newsapi.org/v1/sources';
+    const url = `https://newsapi.org/v1/sources?${this.state.currentFilter.filterKey}=${this.state.currentFilter.filterValue}`;
     Request.get(url).then((response) => {
-      this.setState({
-        sources: response.body.sources,
-      });
+      this.setState((Object.assign({}, { sources: response.body.sources })
+      ));
     });
   }
 
   fetchDefaultArticles() {
-  // Called after the component has been rendered into the page
-  // Fetch articles using the given parameters from the specified source
+  // Fetch default articles from the specified source and sorting
     const url = 'https://newsapi.org/v1/articles?source=bbc-sport&sortBy=top&apiKey=213327409d384371851777e7c7f78dfe';
     Request.get(url).then((response) => {
       this.setState({
@@ -58,8 +88,8 @@ export default class SourceList extends Component {
     });
   }
 
+  // Fetch for articles related to the respective sourceId when called
   fetchArticles() {
-      // Fetch for articles related to the respective sourceId when called
     const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&apiKey=213327409d384371851777e7c7f78dfe`;
     Request.get(url).then((response) => {
       this.setState({
@@ -68,6 +98,23 @@ export default class SourceList extends Component {
     });
   }
 
+  // Handle the actions that occur when the filter parameters are specified
+  handleChangeCategory(event) {
+    const { name, value } = event.target;
+    const callBack = () => {
+      this.fetchSources();
+    };
+    this.setState((prevState) => {
+      const newFilter = Object.assign({}, prevState.currentFilter, {
+        [name]: value,
+      });
+      return Object.assign({}, prevState, {
+        currentFilter: newFilter,
+      });
+    }, callBack);
+  }
+
+  // Set new state when a search word is entered
   updateSearch(event) {
     this.setState({
       search: event.target.value,
@@ -75,15 +122,28 @@ export default class SourceList extends Component {
   }
 
   render() {
-    const sourceFound = this.state.sources.filter(
-      source => source.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1,
+    const {
+      sources,
+      currentFilter: {
+        filterKey,
+        filterValue,
+      },
+    } = this.state;
+    // Map filtered sources
+    const filteredSources = sources.filter(
+     filteredSource => filteredSource[filterKey] === filterValue);
+
+    // Map search using results from the filtered sources
+    const sourceFound = filteredSources.filter(
+      foundSource => foundSource.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1,
       );
-    const topHeading = 'News Source';
+    const topHeading = 'News Sources';
+    const filtering = 'Filter by:';
     return (
       <div className="row">
-        <div className="col-sm-2">
-          <div className="card card-group">
-            <h2><a href="/">{topHeading}</a></h2>
+        <div className="col-sm-3 card"><br />
+          <div className="source-card">
+            <h3><a href="/"><strong>{topHeading}</strong></a></h3>
             <span>
               <input
                 type="text"
@@ -93,20 +153,49 @@ export default class SourceList extends Component {
                 onChange={this.updateSearch}
               />
             </span><br /><br />
+            <div className="">
+              <div className="form-control btn-outline-info">
+                <h6>{filtering}</h6>
+                <select
+                  className="form-control btn- mb-2"
+                  name="filterKey"
+                  onChange={this.handleChangeCategory}
+                  defaultValue={this.state.currentFilter.filterKey}
+                >
+                  {Object.keys(this.state.filters).map(key => (
+                    <option key={key} value={key}>
+                      {key}
+                    </option>
+          ))}
+                </select>
+                <select
+                  className="form-control c-select"
+                  name="filterValue"
+                  defaultValue={this.state.currentFilter.filterValue}
+                >
+                  {Object.keys(this.state.filters[this.state.currentFilter.filterKey]).map(key => (
+                    <option key={key} value={key}>
+                      {key}
+                    </option>
+          ))}
+                </select>
+              </div>
+            </div>
+            <br />
             {/* check the current state of sources and pass them into a function for rendering*/}
             {this.state.sources && sourceFound.map(source => (
               <div className="card" key={source.id}>
                 <button onClick={() => { this.onSubmit(source.id); }}>
                   <ul>
                     {/* button action calls the onSubmit function which changes the state*/}
-                    <h4 className="card-title">{source.name}</h4>
+                    <h5 className="card-title text-justify">{source.name}</h5>
                   </ul>
                 </button>
               </div>
             ))}
           </div>
         </div>
-        <div className="w-75">
+        <div className="card p-3 w-75">
           {/* check if the articles exist and render them*/}
           {this.state.articles && <Articles articles={this.state.articles} />}
         </div>

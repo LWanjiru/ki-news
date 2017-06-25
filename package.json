@@ -9,9 +9,9 @@
   "scripts": {
     "lint": "eslint *.json",
     "test": "jest",
-    "build": "webpack --config webpack.config.js -p",
+    "build": "webpack",
     "heroku-prebuild": " yarn install",
-    "start": "npm run build"
+    "start": "npm run build && webpack-dev-server --hot"
   },
   "jest": {
     "unmockedModulePathPatterns": [
