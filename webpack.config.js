@@ -9,7 +9,7 @@ const config = {
     './public/stylesheets/index.scss',
   ],
   output: {
-    path: path.resolve(__dirname),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'index.bundle.js',
     publicPath: '/',
   },
@@ -20,7 +20,8 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      inject: true,
+      filename: 'index.html',
+      inject: 'body',
     }),
     new ExtractTextPlugin({
       filename: getPath => getPath('index.scss').replace('scss', 'css'),
