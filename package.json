@@ -11,7 +11,7 @@
     "lint": "eslint *.json",
     "test": "jest",
     "heroku-prebuild": " yarn install",
-    "build": "webpack",
+    "build": "webpack -p",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "prod": "NODE_ENV=production node server.js"
   },
