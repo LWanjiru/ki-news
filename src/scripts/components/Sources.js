@@ -40,7 +40,7 @@ export default class SourceList extends Component {
     this.state = {
       sources: [],
       search: '',
-      sourceId: [],
+      sourceId: ['bbc-sport'],
       articles: null,
       currentFilter: {
         filterKey: 'language',
@@ -59,7 +59,7 @@ export default class SourceList extends Component {
   // Called before the render method is executed
   componentWillMount() {
     this.fetchSources();
-    this.fetchDefaultArticles();
+    this.fetchArticles();
   }
 
   // Call the fetchArticles function when source state changes
@@ -78,19 +78,9 @@ export default class SourceList extends Component {
     });
   }
 
-  fetchDefaultArticles() {
-  // Fetch default articles from the specified source and sorting
-    const url = 'https://newsapi.org/v1/articles?source=bbc-sport&sortBy=top&apiKey=213327409d384371851777e7c7f78dfe';
-    Request.get(url).then((response) => {
-      this.setState({
-        articles: response.body.articles,
-      });
-    });
-  }
-
-  // Fetch for articles related to the respective sourceId when called
   fetchArticles() {
-    const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&apiKey=213327409d384371851777e7c7f78dfe`;
+  // Fetch for articles related to the respective sourceId when called
+    const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&sortBy=top&apiKey=213327409d384371851777e7c7f78dfe`;
     Request.get(url).then((response) => {
       this.setState({
         articles: response.body.articles,
@@ -139,6 +129,7 @@ export default class SourceList extends Component {
       );
     const topHeading = 'News Sources';
     const filtering = 'Filter by:';
+
     return (
       <div className="row">
         <div className="col-sm-3 card"><br />
@@ -153,33 +144,31 @@ export default class SourceList extends Component {
                 onChange={this.updateSearch}
               />
             </span><br /><br />
-            <div className="">
-              <div className="form-control btn-outline-info">
-                <h6>{filtering}</h6>
-                <select
-                  className="form-control btn- mb-2"
-                  name="filterKey"
-                  onChange={this.handleChangeCategory}
-                  defaultValue={this.state.currentFilter.filterKey}
-                >
-                  {Object.keys(this.state.filters).map(key => (
-                    <option key={key} value={key}>
-                      {key}
-                    </option>
+            <div className="form-control btn-outline-info">
+              <h6>{filtering}</h6>
+              <select
+                className="form-control btn- mb-2"
+                name="filterKey"
+                onChange={this.handleChangeCategory}
+                defaultValue={this.state.currentFilter.filterKey}
+              >
+                {Object.keys(this.state.filters).map(key => (
+                  <option key={key} value={key}>
+                    {key}
+                  </option>
           ))}
-                </select>
-                <select
-                  className="form-control c-select"
-                  name="filterValue"
-                  defaultValue={this.state.currentFilter.filterValue}
-                >
-                  {Object.keys(this.state.filters[this.state.currentFilter.filterKey]).map(key => (
-                    <option key={key} value={key}>
-                      {key}
-                    </option>
+              </select>
+              <select
+                className="form-control c-select"
+                name="filterValue"
+                defaultValue={this.state.currentFilter.filterValue}
+              >
+                {Object.keys(this.state.filters[this.state.currentFilter.filterKey]).map(key => (
+                  <option key={key} value={key}>
+                    {key}
+                  </option>
           ))}
-                </select>
-              </div>
+              </select>
             </div>
             <br />
             {/* check the current state of sources and pass them into a function for rendering*/}
