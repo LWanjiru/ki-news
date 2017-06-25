@@ -9,7 +9,7 @@ const config = {
     './public/stylesheets/index.scss',
   ],
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname),
     filename: 'index.bundle.js',
     publicPath: '/',
   },
