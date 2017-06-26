@@ -11,7 +11,7 @@ const config = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.bundle.js',
+    filename: ['index.bundle.js', 'index.css'],
     publicPath: '/',
   },
   devServer: {
