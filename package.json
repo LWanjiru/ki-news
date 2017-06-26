@@ -12,9 +12,9 @@
     "test": "jest",
     "coveralls": "./node_modules/.bin/coveralls  < coverage/lcov.info",
     "build": "webpack",
-    "heroku-prebuild": "yarn install && npm run build",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "prod": "NODE_ENV=production node server.js"
+    "prod": "NODE_ENV=production node server.js",
+    "heroku-postbuild": "npm run build"
   },
   "jest": {
     "unmockedModulePathPatterns": [
