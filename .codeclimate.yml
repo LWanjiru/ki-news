@@ -24,4 +24,4 @@ ratings:
 exclude_paths:
 - dist/
 - node_modules/
-- coverage
+- coverage/
