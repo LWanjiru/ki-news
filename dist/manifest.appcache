@@ -1,8 +1,8 @@
 CACHE MANIFEST
-# 30a4d01f5ad2d33eb0cc
+# a71fdcd02ea47eda5723
 
 /index.bundle.js
-/index.css
+/./public/stylesheets/index.css
 /index.html
 
 NETWORK:
