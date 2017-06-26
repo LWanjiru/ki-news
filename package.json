@@ -12,7 +12,7 @@
     "test": "jest",
     "coveralls": "./node_modules/.bin/coveralls  < coverage/lcov.info",
     "build": "webpack",
-    "heroku-prebuild": "npm run build",
+    "heroku-prebuild": "yarn install && npm run build",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "prod": "NODE_ENV=production node server.js"
   },
