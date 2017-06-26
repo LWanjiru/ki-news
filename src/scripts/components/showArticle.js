@@ -17,10 +17,11 @@ export default class ShowArticle extends Component {
   }
 
   render() {
-    let buttonText = 'Click Here To View Full Story After Clicking On An Article';
+    let buttonText = 'Click Here To View Full Story in an Iframe';
     if (this.state.showFrame) {
       buttonText = 'Close Frame';
     }
+
     return (
       <div className="iframe-btn">
         <button
@@ -35,7 +36,6 @@ export default class ShowArticle extends Component {
           {buttonText}
         </button>
         <div className="collapse" id="article-frame">
-          <p>Click on a link to view the story here!</p>
           <ShowIframe />
         </div>
       </div>

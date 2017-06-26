@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55% </span>
+        <span class="strong">59.46% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>22/40</span>
+        <span class='fraction'>22/37</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">75% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>3/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">36.84% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/21</span>
+        <span class='fraction'>7/19</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55% </span>
+        <span class="strong">59.46% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>22/40</span>
+        <span class='fraction'>22/37</span>
       </div>
     </div>
   </div>
@@ -237,18 +237,7 @@
 192
 193
 194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+195</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -344,16 +333,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -389,8 +368,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -425,7 +404,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -495,7 +473,7 @@ export default class SourceList extends Component {
     this.state = {
       sources: [],
       search: '',
-      sourceId: [],
+      sourceId: ['bbc-sport'],
       articles: null,
       currentFilter: {
         filterKey: 'language',
@@ -514,7 +492,7 @@ export default class SourceList extends Component {
   // Called before the render method is executed
   componentWillMount() {
     this.fetchSources();
-    this.fetchDefaultArticles();
+    this.fetchArticles();
   }
 &nbsp;
   // Call the fetchArticles function when source state changes
@@ -533,20 +511,10 @@ export default class SourceList extends Component {
     });
   }
 &nbsp;
-  fetchDefaultArticles() {
-  // Fetch default articles from the specified source and sorting
-    const url = 'https://newsapi.org/v1/articles?source=bbc-sport&amp;sortBy=top&amp;apiKey=213327409d384371851777e7c7f78dfe';
-    Request.get(url).then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; {
-<span class="cstat-no" title="statement not covered" >      this.setState({</span>
-        articles: response.body.articles,
-      });
-    });
-  }
-&nbsp;
+  fetchArticles() {
   // Fetch for articles related to the respective sourceId when called
-<span class="fstat-no" title="function not covered" >  fe</span>tchArticles() {
-    const url = <span class="cstat-no" title="statement not covered" >`https://newsapi.org/v1/articles?source=${this.state.sourceId}&amp;apiKey=213327409d384371851777e7c7f78dfe`;</span>
-<span class="cstat-no" title="statement not covered" >    Request.get(url).then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; {</span>
+    const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&amp;sortBy=top&amp;apiKey=213327409d384371851777e7c7f78dfe`;
+    Request.get(url).then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; {
 <span class="cstat-no" title="statement not covered" >      this.setState({</span>
         articles: response.body.articles,
       });
@@ -594,6 +562,7 @@ export default class SourceList extends Component {
       );
     const topHeading = 'News Sources';
     const filtering = 'Filter by:';
+&nbsp;
     return (
       &lt;div className="row"&gt;
         &lt;div className="col-sm-3 card"&gt;&lt;br /&gt;
@@ -608,33 +577,31 @@ export default class SourceList extends Component {
                 onChange={this.updateSearch}
               /&gt;
             &lt;/span&gt;&lt;br /&gt;&lt;br /&gt;
-            &lt;div className=""&gt;
-              &lt;div className="form-control btn-outline-info"&gt;
-                &lt;h6&gt;{filtering}&lt;/h6&gt;
-                &lt;select
-                  className="form-control btn- mb-2"
-                  name="filterKey"
-                  onChange={this.handleChangeCategory}
-                  defaultValue={this.state.currentFilter.filterKey}
-                &gt;
-                  {Object.keys(this.state.filters).map(key =&gt; (
-                    &lt;option key={key} value={key}&gt;
-                      {key}
-                    &lt;/option&gt;
+            &lt;div className="form-control btn-outline-info"&gt;
+              &lt;h6&gt;{filtering}&lt;/h6&gt;
+              &lt;select
+                className="form-control btn- mb-2"
+                name="filterKey"
+                onChange={this.handleChangeCategory}
+                defaultValue={this.state.currentFilter.filterKey}
+              &gt;
+                {Object.keys(this.state.filters).map(key =&gt; (
+                  &lt;option key={key} value={key}&gt;
+                    {key}
+                  &lt;/option&gt;
           ))}
-                &lt;/select&gt;
-                &lt;select
-                  className="form-control c-select"
-                  name="filterValue"
-                  defaultValue={this.state.currentFilter.filterValue}
-                &gt;
-                  {Object.keys(this.state.filters[this.state.currentFilter.filterKey]).map(key =&gt; (
-                    &lt;option key={key} value={key}&gt;
-                      {key}
-                    &lt;/option&gt;
+              &lt;/select&gt;
+              &lt;select
+                className="form-control c-select"
+                name="filterValue"
+                defaultValue={this.state.currentFilter.filterValue}
+              &gt;
+                {Object.keys(this.state.filters[this.state.currentFilter.filterKey]).map(key =&gt; (
+                  &lt;option key={key} value={key}&gt;
+                    {key}
+                  &lt;/option&gt;
           ))}
-                &lt;/select&gt;
-              &lt;/div&gt;
+              &lt;/select&gt;
             &lt;/div&gt;
             &lt;br /&gt;
             {/* check the current state of sources and pass them into a function for rendering*/}
@@ -664,7 +631,7 @@ export default class SourceList extends Component {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Jun 25 2017 22:28:45 GMT+0200 (CEST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jun 26 2017 20:31:49 GMT+0200 (CEST)
 </div>
 </div>
 <script src="prettify.js"></script>

@@ -1,14 +1,21 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+// import expect from 'expect';
+import { shallow, mount } from 'enzyme';
 import Articles from './../../src/scripts/components/Articles';
 
-describe('sources', () => {
+it('renders without crashing', () => {
+  mount(<Articles />);
+});
+it('renders the <ShowArticle /> component', () => {
   const wrapper = shallow(<Articles />);
-  it('renders without crashing', () => {
-    shallow(<Articles />);
-  });
-  it('renders the <ShowArticle /> component', () => {
-    const component = wrapper.find('ShowArticle');
-    expect(component.length).toBe(1);
-  });
+  const component = wrapper.find('ShowArticle');
+  expect(component.length).toBe(1);
+});
+it('renders articles', () => {
+  const articles = ['article1'];
+  const wrapper = mount(
+    <Articles articles={articles} />,
+  );
+  const a = wrapper.find('p');
+  expect(a.text()).toBe('article1');
 });

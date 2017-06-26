@@ -4,7 +4,7 @@ Know It All News: Be in the know of what's happening around the world!
 ---
 ### Getting Started
 ---
-This is a front-end application that takes advantage of the functionalities NewsAPI provides. The application should be similar to a modern RSS feed that allows you to view all headlines from different news sources and link to the original articles/news on those sources.
+KI-All News is a front-end application that takes advantage of the functionalities NewsApi.org provides. The application allows you to view all news headlines from different news sources and link to the original articles/news on those sources.
 
 To clone this repository and run the app from your computer
 ```
@@ -18,6 +18,15 @@ After cloning the repository, run the following commands
 `$ yarn add`
 
 This will install all the depencencies.
+
+use `npm start` to start run the application
+
+### Testing
+---
+use either `npm test` or `jest` to run the tests 
+`jest --coverage` to view the percentages covered by the tests on  each file and in total.
+
+
 
 
 

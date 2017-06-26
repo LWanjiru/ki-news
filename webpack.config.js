@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const AppCachePlugin = require('appcache-webpack-plugin');
 
+const PORT = process.env.PORT;
 const config = {
   entry: [
     './src/main.js',
@@ -13,6 +14,12 @@ const config = {
     filename: 'index.bundle.js',
     publicPath: '/',
   },
+  devServer: {
+    inline: true,
+    disableHostCheck: true,
+    host: '0.0.0.0',
+    port: PORT,
+  },
   // Import files without having to include suffix
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -20,8 +27,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: 'index.html',
-      inject: 'body',
+      inject: true,
     }),
     new ExtractTextPlugin({
       filename: getPath => getPath('index.scss').replace('scss', 'css'),
@@ -34,7 +40,7 @@ const config = {
   module: {
     rules: [
       // Match both .js and .jsx when compiling
-      { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules|bower_components/ },
 
       // Extract CSS
       {

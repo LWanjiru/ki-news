@@ -1,6 +1,7 @@
 import React from 'react';
+import expect from 'expect';
 import { shallow, render } from 'enzyme';
-import Login from './../../src/scripts/components/Login';
+import Login, { GoogleLogin } from './../../src/scripts/components/Login';
 
 describe('Login page', () => {
   const wrapper = shallow(<Login />);
@@ -11,11 +12,9 @@ describe('Login page', () => {
     expect(render(<Login />).text()).toEqual('Login with Google+');
   });
   it('Should render <GoogleLogin /> component', () => {
-    const googleComponent = wrapper.find('GoogleLogin');
-    expect(googleComponent.length).toBe(1);
+    expect(<GoogleLogin />).toExist();
   });
   it('Should have a div present', () => {
-    const divs = wrapper.find('div');
-    expect(divs.length).toBe(1);
+    expect(wrapper.node.type).toBe('div');
   });
 });

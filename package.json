@@ -11,7 +11,6 @@
     "lint": "eslint *.json",
     "test": "jest",
     "coveralls": "./node_modules/.bin/coveralls  < coverage/lcov.info",
-    "heroku-prebuild": " yarn install",
     "build": "webpack -p",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "prod": "NODE_ENV=production node server.js"
@@ -64,6 +63,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.1",
     "enzyme": "^2.8.2",
+    "expect": "^1.20.2",
     "express": "^4.15.3",
     "extract-text-webpack-plugin": "^2.1.0",
     "flux": "^3.1.2",
