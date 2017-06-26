@@ -28,8 +28,9 @@ use either `npm test` or `jest` to run the tests
 
 
 
-
-
+### Deployed Version
+---
+A live version of the app is availabe on `Heroku` at https://ki-all-news.herokuapp.com
 
 [![Build Status](https://travis-ci.org/LWanjiru/ki-news.svg?branch=feature%2F144583299%2Fwrite-tests-for-components)](https://travis-ci.org/LWanjiru/ki-news)
 [![Code Climate](https://codeclimate.com/github/LWanjiru/ki-news/badges/gpa.svg)](https://codeclimate.com/github/LWanjiru/ki-news)
