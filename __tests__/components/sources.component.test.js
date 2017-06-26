@@ -11,6 +11,6 @@ it('renders sources', () => {
   const wrapper = mount(
     <SourceList source={sources} />,
   );
-  const a = wrapper.find('p');
-  expect(a.text()).toBe('article1');
+  const a = wrapper.find('h5');
+  expect(a.text()).toBe('source1');
 });
