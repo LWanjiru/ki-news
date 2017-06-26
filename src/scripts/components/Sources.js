@@ -177,7 +177,7 @@ export default class SourceList extends Component {
                 <button onClick={() => { this.onSubmit(source.id); }}>
                   <ul>
                     {/* button action calls the onSubmit function which changes the state*/}
-                    <p><h5 className="card-title text-justify">{source.name}</h5></p>
+                    <h5 className="card-title text-justify">{source.name}</h5>
                   </ul>
                 </button>
               </div>

@@ -19,6 +19,6 @@ it('should change the state', () => {
   const button = shallow(<ShowArticle />);
   expect(button.text()).toEqual('Click Here To View Full Story in an Iframe<ShowIframe />');
   button.find('button').simulate('click');
-  expect(button.text()).toEqual('Close Frame');
+  expect(button.text()).toEqual('Close Frame<ShowIframe />');
 });
 
