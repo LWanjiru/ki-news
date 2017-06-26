@@ -12,10 +12,10 @@ it('renders the <ShowArticle /> component', () => {
   expect(component.length).toBe(1);
 });
 it('renders articles', () => {
-  const articles = ['article1'];
+  const articles = [''];
   const wrapper = mount(
     <Articles articles={articles} />,
   );
   const a = wrapper.find('p');
-  expect(a.text()).toBe('article1');
+  expect(a.text()).toBe('');
 });
