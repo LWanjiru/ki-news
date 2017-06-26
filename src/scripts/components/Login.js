@@ -15,7 +15,7 @@ export default class Login extends Component {
         <GoogleLogin
           socialId="1054136645395-cf4o0i0er8treqp01til7t28a7ngcqg9.apps.googleusercontent.com"
           class="btn btn-danger"
-          scope="profile"
+          scope="https://www.googleapis.com/auth/appstate"
           responseHandler={this.responseGoogle}
           buttonText="Login with Google+"
         />
