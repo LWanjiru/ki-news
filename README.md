@@ -14,8 +14,8 @@ $ git clone https://github.com/LWanjiru/ki-news.git
 ---
 After cloning the repository, run the following commands 
 
-`$ npm install` and then;
-`$ yarn add`
+`$ npm install`
+`$ yarn install`
 
 This will install all the depencencies.
 

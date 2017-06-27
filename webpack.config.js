@@ -30,7 +30,7 @@ const config = {
       inject: true,
     }),
     new ExtractTextPlugin({
-      filename: getPath => getPath('./public/stylesheets/index.scss').replace('scss', 'css'),
+      filename: getPath => getPath('index.scss').replace('scss', 'css'),
       allChunks: true,
     }),
     new AppCachePlugin({
