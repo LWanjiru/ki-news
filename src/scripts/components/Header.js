@@ -4,7 +4,6 @@ import Login from './Login';
 const Header = () => {
   const header = 'KI-All News';
   const imgWidth = 40;
-  const rightMargin = 10;
   const fontHeader = { font: 35 };
   return (
     <nav className="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
@@ -15,7 +14,6 @@ const Header = () => {
         <img
           src="./../../../../public/logo.jpg"
           width={imgWidth}
-          margin-right={rightMargin}
           className="card-inline-block align-top"
           alt="page logo"
         />

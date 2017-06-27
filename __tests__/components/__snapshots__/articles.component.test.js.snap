@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should pass a selected value to the handleClick function 1`] = `
+<div
+  className="articles"
+>
+  <a
+    href="/"
+  >
+    <h1
+      className="heading"
+    >
+      Articles
+    </h1>
+  </a>
+  <div
+    className="iframe-btn"
+  >
+    <button
+      aria-controls="article-frame"
+      aria-expanded="false"
+      className="btn btn-success active"
+      data-target="#article-frame"
+      data-toggle="collapse"
+      onClick={[Function]}
+      type="button"
+    >
+      Click Here To View Full Story in an Iframe
+    </button>
+    <div
+      className="collapse"
+      id="article-frame"
+    >
+      <ShowIframe />
+    </div>
+  </div>
+  <br />
+  <div
+    className="row"
+  />
+</div>
+`;
