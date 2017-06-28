@@ -81,7 +81,9 @@ export default class SourceList extends Component {
   fetchArticles() {
   // Fetch for articles related to the respective sourceId when called
     const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&sortBy=top&apiKey=213327409d384371851777e7c7f78dfe`;
-    Request.get(url).then((response) => {
+    Request
+    .get(url)
+    .then((response) => {
       this.setState({
         articles: response.body.articles,
       });

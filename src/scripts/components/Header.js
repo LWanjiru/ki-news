@@ -4,7 +4,6 @@ import Login from './Login';
 const Header = () => {
   const header = 'KI-All News';
   const imgWidth = 40;
-  const fontHeader = { font: 35 };
   return (
     <nav className="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
       <div className="navbar-toggler-right">
@@ -17,7 +16,7 @@ const Header = () => {
           className="card-inline-block align-top"
           alt="page logo"
         />
-        <strong style={{ fontHeader }}>{header}</strong>
+        <strong>{header}</strong>
       </a>
     </nav>
   );

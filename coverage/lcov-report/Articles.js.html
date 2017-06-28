@@ -22,12 +22,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>13/13</span>
+        <span class='fraction'>14/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">87.5% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>7/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>13/13</span>
+        <span class='fraction'>14/14</span>
       </div>
     </div>
   </div>
@@ -118,10 +118,7 @@
 73
 74
 75
-76
-77
-78
-79</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+76</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,13 +129,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,17 +144,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -202,7 +196,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import ShowIframe from './showIframe';
-// import ShowArticle from './showArticle';
 &nbsp;
 export default class Articles extends Component {
   /**
@@ -219,7 +212,7 @@ export default class Articles extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 &nbsp;
-  handleClick() {
+  handleClick(e) {
     this.setState({
       showFrame: !this.state.showFrame,
     });
@@ -228,29 +221,27 @@ export default class Articles extends Component {
   render() {
     const articleHeadline = 'Articles';
     const imageWidth = 300;
-    let buttonText = 'Click Here To View Full Story in an Iframe';
+    let buttonText;
     if (this.state.showFrame) {
       buttonText = 'Close Frame';
+    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.state.showFrame) {
+      buttonText = 'Click on an article to view in Iframe';
     }
     return (
       &lt;div className="articles"&gt;
         &lt;a href="/" &gt;&lt;h1 className="heading"&gt;{articleHeadline}&lt;/h1&gt;&lt;/a&gt;
-        {/* &lt;ShowArticle /&gt;*/}
         &lt;div className="iframe-btn"&gt;
           &lt;button
             className="btn btn-success active"
             type="button"
             data-toggle="collapse"
-            data-target="#article-frame"
             aria-expanded="false"
             aria-controls="article-frame"
             onClick={this.handleClick}
           &gt;
             {buttonText}
           &lt;/button&gt;
-          &lt;div className="collapse" id="article-frame"&gt;
-            &lt;ShowIframe /&gt;
-          &lt;/div&gt;
+          {this.state.showFrame &amp;&amp; &lt;ShowIframe /&gt;}
         &lt;/div&gt;
         &lt;br /&gt;
         &lt;div className="row"&gt;
@@ -258,7 +249,7 @@ export default class Articles extends Component {
             &lt;div className="card-group col-sm-6" key={article.title}&gt;
               &lt;ul&gt;
                 &lt;div className="card-block"&gt;
-                  &lt;a href={article.url} target="iframe_a" &gt;
+                  &lt;a href={article.url} onClick={this.handleClick} target="iframe_a" &gt;
                     &lt;h3 className="card-title"&gt;
                       {article.title}
                     &lt;/h3&gt;
@@ -283,7 +274,7 @@ Articles.defaultProps = null;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 27 2017 11:18:40 GMT+0200 (CEST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jun 28 2017 12:22:07 GMT+0200 (CEST)
 </div>
 </div>
 <script src="prettify.js"></script>

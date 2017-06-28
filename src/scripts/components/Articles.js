@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import ShowIframe from './showIframe';
-// import ShowArticle from './showArticle';
 
 export default class Articles extends Component {
   /**
@@ -30,7 +29,7 @@ export default class Articles extends Component {
     let buttonText;
     if (this.state.showFrame) {
       buttonText = 'Close Frame';
-    } else {
+    } else if (!this.state.showFrame) {
       buttonText = 'Click on an article to view in Iframe';
     }
     return (
@@ -40,7 +39,6 @@ export default class Articles extends Component {
           <button
             className="btn btn-success active"
             type="button"
-            data-toggle="collapse"
             aria-expanded="false"
             aria-controls="article-frame"
             onClick={this.handleClick}
