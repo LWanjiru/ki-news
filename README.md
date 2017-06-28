@@ -27,7 +27,13 @@ use `npm start` to start run the application
 use either `npm test` or `jest` to run the tests 
 `jest --coverage` to view the percentages covered by the tests on  each file and in total.
 
-
+### Features
+---
+- Login to the application using Google+.
+- Search through a list of sources.
+- Select sources and view headlines based on sources (filters).
+- Display the articles within the application.
+- Click links to the original articles and be directed to them within the application
 
 ### Deployed Version
 ---
