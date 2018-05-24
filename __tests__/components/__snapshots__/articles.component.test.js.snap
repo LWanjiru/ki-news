@@ -20,7 +20,6 @@ exports[`Articles component and Iframe should pass a selected value to the handl
       aria-controls="article-frame"
       aria-expanded="false"
       className="btn btn-success active"
-      data-toggle="collapse"
       onClick={[Function]}
       type="button"
     >

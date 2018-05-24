@@ -13,7 +13,7 @@ describe('Articles component and Iframe', () => {
     expect(button.length).toBe(1);
     expect(button.text()).toEqual('Click on an article to view in Iframe');
     button.simulate('click');
-    console.log(button);
+    console.log(button.text);
     expect(button.text()).toEqual('Close');
   });
   it('renders articles', () => {
