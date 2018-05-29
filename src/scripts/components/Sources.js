@@ -40,7 +40,7 @@ export default class SourceList extends Component {
     this.state = {
       sources: [],
       search: '',
-      sourceId: ['bbc-sport'],
+      sourceId: ['bbc-news'],
       articles: null,
       currentFilter: {
         filterKey: 'language',
@@ -80,7 +80,7 @@ export default class SourceList extends Component {
 
   fetchArticles() {
   // Fetch for articles related to the respective sourceId when called
-    const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&sortBy=top&apiKey=213327409d384371851777e7c7f78dfe`;
+    const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&sortBy=top&apiKey=9dc447b8d8d148b1b006bdbf224f9b6a`;
     Request
     .get(url)
     .then((response) => {
@@ -100,7 +100,7 @@ export default class SourceList extends Component {
       const newFilter = Object.assign({}, prevState.currentFilter, {
         [name]: value,
       });
-      return Object.assign({}, prevState, {
+      return Object.assign({}, prevState.currentFilter, {
         currentFilter: newFilter,
       });
     }, callBack);
@@ -124,7 +124,6 @@ export default class SourceList extends Component {
     // Map filtered sources
     const filteredSources = sources.filter(
      filteredSource => filteredSource[filterKey] === filterValue);
-
     // Map search using results from the filtered sources
     const sourceFound = filteredSources.filter(
       foundSource => foundSource.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1,
@@ -186,8 +185,10 @@ export default class SourceList extends Component {
             ))}
           </div>
         </div>
-        <div className="card p-3 w-75">
-          {/* check if the articles exist and render them*/}
+        <br />
+        <div className="card-block card w-75">
+          {/* check if the articles exist and render them */}
+          <h6 className="float-right"><mark><strong>Source:</strong><em> {this.state.sourceId}</em></mark></h6>
           {this.state.articles && <Articles articles={this.state.articles} />}
         </div>
       </div>
