@@ -188,7 +188,12 @@ export default class SourceList extends Component {
         <br />
         <div className="card-block card w-75">
           {/* check if the articles exist and render them */}
-          <h6 className="float-right"><mark><strong>Source:</strong><em> {this.state.sourceId}</em></mark></h6>
+          <h6 className="float-right">
+            <mark>
+              <strong>Source:</strong>
+              <em> {this.state.sourceId}</em>
+            </mark>
+          </h6>
           {this.state.articles && <Articles articles={this.state.articles} />}
         </div>
       </div>
