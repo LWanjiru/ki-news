@@ -8,9 +8,11 @@ exports[`Articles component and Iframe should pass a selected value to the handl
     href="/"
   >
     <h1
-      className="heading"
+      className="heading mb-2"
     >
-      Articles
+      <u>
+        Articles
+      </u>
     </h1>
   </a>
   <div
@@ -19,13 +21,12 @@ exports[`Articles component and Iframe should pass a selected value to the handl
     <button
       aria-controls="article-frame"
       aria-expanded="false"
-      className="btn btn-success active"
+      className="btn btn-info active"
       onClick={[Function]}
       type="button"
     >
-      Close Frame
+      Click on an article to view in Iframe
     </button>
-    <ShowIframe />
   </div>
   <br />
   <div

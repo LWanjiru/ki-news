@@ -9,12 +9,16 @@ describe('Articles component and Iframe', () => {
     mount(<Articles />);
   });
   it('renders the button containing the <ShowIframe /> component', () => {
-    const button = component.find('button');
+    const wrapper = mount(
+      <Articles />,
+    );
+    const button = wrapper.find('button');
     expect(button.length).toBe(1);
     expect(button.text()).toEqual('Click on an article to view in Iframe');
     button.simulate('click');
-    console.log(button.text);
-    expect(button.text()).toEqual('Close');
+    expect(button.text()).toEqual('Close Frame');
+    button.simulate('click');
+    expect(button.text()).toEqual('Click on an article to view in Iframe');
   });
   it('renders articles', () => {
     const articles = [''];

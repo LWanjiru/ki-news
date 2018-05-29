@@ -2,9 +2,10 @@
 
 exports[`Show Iframe (Snapshot) renders an iframe 1`] = `
 <div
-  className="embed-responsive embed-responsive-16by9"
+  className="mt-3 embed-responsive embed-responsive-16by9 i-frame"
 >
   <iframe
+    className="border border-warning rounded"
     name="iframe_a"
   />
 </div>

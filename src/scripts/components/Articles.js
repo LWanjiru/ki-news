@@ -25,7 +25,6 @@ export default class Articles extends Component {
 
   render() {
     const articleHeadline = 'Articles';
-    const imageWidth = 300;
     let buttonText;
     if (this.state.showFrame) {
       buttonText = 'Close Frame';
@@ -34,10 +33,10 @@ export default class Articles extends Component {
     }
     return (
       <div className="articles">
-        <a href="/" ><h1 className="heading">{articleHeadline}</h1></a>
+        <a href="/" ><h1 className="heading mb-2"><u>{articleHeadline}</u></h1></a>
         <div className="iframe-btn">
           <button
-            className="btn btn-success active"
+            className="btn btn-info active"
             type="button"
             aria-expanded="false"
             aria-controls="article-frame"
@@ -57,7 +56,11 @@ export default class Articles extends Component {
                     <h3 className="card-title">
                       {article.title}
                     </h3>
-                    <img src={article.urlToImage} width={imageWidth} alt="storyImg" />
+                    <img
+                      className="img-thumbnail img-fluid"
+                      src={article.urlToImage}
+                      alt="storyImg"
+                    />
                   </a><br />
                   <p className="text-left">{article.description}</p>
                 </div>

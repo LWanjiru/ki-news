@@ -18,5 +18,5 @@ it('simulates click events', () => {
   const onButtonClick = sinon.spy();
   const wrapper = shallow(<SourceList onButtonClick={onButtonClick} />);
   wrapper.find('button').at(0).simulate('click');
-  expect(onButtonClick).calledOnce();
+  expect(onButtonClick.calledOnce);
 });
