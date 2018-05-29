@@ -172,12 +172,12 @@ export default class SourceList extends Component {
               </select>
             </div>
             <br />
-            {/* check the current state of sources and pass them into a function for rendering*/}
+            {/* check the current state of sources and pass them into a function for rendering */}
             {this.state.sources && sourceFound.map(source => (
               <div className="card" key={source.id}>
                 <button onClick={() => { this.onSubmit(source.id); }}>
                   <ul>
-                    {/* button action calls the onSubmit function which changes the state*/}
+                    {/* button action calls the onSubmit function which changes the state */}
                     <h5 className="card-title text-justify">{source.name}</h5>
                   </ul>
                 </button>
