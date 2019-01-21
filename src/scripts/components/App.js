@@ -7,8 +7,10 @@ const App = () => (
     <div className="header">
       <Header />
     </div>
-    <div className="sources">
+    <div>
       <img id="personalized" alt="my things" />
+    </div>
+    <div className="sources">
       <SourceList />
     </div>
   </div>
