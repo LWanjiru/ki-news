@@ -47,6 +47,9 @@ export default class Articles extends Component {
           {this.state.showFrame && <ShowIframe />}
         </div>
         <br />
+        <div id="the-image">
+          <img id="personalized" alt="my things" />
+        </div>
         <div className="row">
           {this.props.articles && this.props.articles.map(article => (
             <div className="card-group col-sm-6" key={article.title}>
