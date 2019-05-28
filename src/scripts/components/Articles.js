@@ -21,6 +21,7 @@ export default class Articles extends Component {
     this.setState({
       showFrame: !this.state.showFrame,
     });
+    
   }
 
   render() {
@@ -44,6 +45,7 @@ export default class Articles extends Component {
           >
             {buttonText}
           </button>
+          <p><strong><sup>*</sup><small>Not all pages allow for viewing in iframe </small></strong></p>
           {this.state.showFrame && <ShowIframe />}
         </div>
         <br />
@@ -61,7 +63,8 @@ export default class Articles extends Component {
                       src={article.urlToImage}
                       alt="storyImg"
                     />
-                  </a><br />
+                  </a>
+                  <br />
                   <p className="text-left">{article.description}</p>
                 </div>
               </ul>
