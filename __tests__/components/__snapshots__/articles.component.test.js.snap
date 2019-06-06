@@ -27,6 +27,16 @@ exports[`Articles component and Iframe should pass a selected value to the handl
     >
       Click on an article to view in Iframe
     </button>
+    <p>
+      <strong>
+        <sup>
+          *
+        </sup>
+        <small>
+          Not all pages allow for viewing in iframe(click on linkg twice to open in new tab) 
+        </small>
+      </strong>
+    </p>
   </div>
   <br />
   <div

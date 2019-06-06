@@ -45,7 +45,7 @@ export default class Articles extends Component {
           >
             {buttonText}
           </button>
-          <p><strong><sup>*</sup><small>Not all pages allow for viewing in iframe </small></strong></p>
+          <p><strong><sup>*</sup><small>Not all pages allow for viewing in iframe(click on linkg twice to open in new tab) </small></strong></p>
           {this.state.showFrame && <ShowIframe />}
         </div>
         <br />
