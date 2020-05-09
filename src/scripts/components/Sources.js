@@ -4,6 +4,7 @@ import Articles from './Articles';
 
 const FILTERS = {
   country: {
+    '--':'--',
     au: 'au',
     de: 'de',
     gb: 'gb',
@@ -14,17 +15,12 @@ const FILTERS = {
   language: {
     de: 'de',
     en: 'en',
-    fr: 'fr',
   },
   category: {
+    '--':'--',
     business: 'business',
     entertainment: 'entertainment',
-    gaming: 'gaming',
     general: ' general',
-    music: 'music',
-    politics: 'politics',
-    science_and_nature: 'science-and-nature',
-    sport: 'sport',
     technology: 'technology',
   },
 };
@@ -96,14 +92,21 @@ export default class SourceList extends Component {
     const callBack = () => {
       this.fetchSources();
     };
-    this.setState((prevState) => {
-      const newFilter = Object.assign({}, prevState.currentFilter, {
-        [name]: value,
+    if(name === 'filterKey') {
+      this.setState({
+        currentFilter: {
+          filterKey: value,
+        }
       });
-      return Object.assign({}, prevState.currentFilter, {
-        currentFilter: newFilter,
-      });
-    }, callBack);
+    }
+    if( this.state.currentFilter.filterKey && name === 'filterValue') {
+      this.setState({
+        currentFilter: {
+          filterKey: this.state.currentFilter.filterKey,
+          filterValue: value
+        }
+      }, callBack);
+    }
   }
 
   // Set new state when a search word is entered
@@ -162,6 +165,7 @@ export default class SourceList extends Component {
               <select
                 className="form-control c-select"
                 name="filterValue"
+                onChange={this.handleChangeCategory}
                 defaultValue={this.state.currentFilter.filterValue}
               >
                 {Object.keys(this.state.filters[this.state.currentFilter.filterKey]).map(key => (
@@ -185,7 +189,6 @@ export default class SourceList extends Component {
             ))}
           </div>
         </div>
-        <br />
         <div className="card-block card w-75">
           {/* check if the articles exist and render them */}
           <h6 className="float-right">
