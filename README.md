@@ -29,11 +29,11 @@ use either `npm test` or `jest` to run the tests
 
 ### Features
 ---
-- Login to the application using Google+.
 - Search through a list of sources.
 - Select sources and view headlines based on sources (filters).
-- Display the articles within the application.
-- Click links to the original articles and be directed to them within the application
+- Search through sources with advanced filters.
+- Display the article snippets within the application.
+- Click links to the original articles and be redirected to them
 
 ### Deployed Version
 ---

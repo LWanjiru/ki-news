@@ -13,6 +13,7 @@ const FILTERS = {
     us: 'us',
   },
   language: {
+    '--':'--',
     de: 'de',
     en: 'en',
   },
@@ -76,7 +77,7 @@ export default class SourceList extends Component {
 
   fetchArticles() {
   // Fetch for articles related to the respective sourceId when called
-    const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&sortBy=top&apiKey=9dc447b8d8d148b1b006bdbf224f9b6a`;
+    const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&sortBy=top&apiKey=999e8037764a4691ae09301f8a156405`;
     Request
     .get(url)
     .then((response) => {
