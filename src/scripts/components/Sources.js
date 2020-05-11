@@ -126,28 +126,28 @@ export default class SourceList extends Component {
       },
     } = this.state;
     // Map filtered sources
+    // eslint-disable-next-line one-var
     const filteredSources = sources.filter(
-     filteredSource => filteredSource[filterKey] === filterValue);
+     filteredSource => filteredSource[filterKey] === filterValue),
     // Map search using results from the filtered sources
-    const sourceFound = filteredSources.filter(
+      sourceFound = filteredSources.filter(
       foundSource => foundSource.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1,
-      );
-    const topHeading = 'News Sources';
-    const filtering = 'Filter by:';
+    ),
+      topHeading = 'News Sources',
+      filtering = 'Filter by:';
 
     return (
       <div className="row">
         <div className="col-sm-3 card"><br />
           <div className="source-card">
             <h3><a href="/"><strong>{topHeading}</strong></a></h3>
-            <span>
-              <input
-                type="text"
-                className="form-control btn btn-outline-info"
-                placeholder="Search Sources"
-                value={this.state.search}
-                onChange={this.updateSearch}
-              />
+            <span><input
+              type="text"
+              className="form-control btn btn-outline-info"
+              placeholder="Search Sources"
+              value={this.state.search}
+              onChange={this.updateSearch}
+            />
             </span><br /><br />
             <div className="form-control btn-outline-info">
               <h6>{filtering}</h6>
