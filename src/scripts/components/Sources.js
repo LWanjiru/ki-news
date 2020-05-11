@@ -4,7 +4,7 @@ import Articles from './Articles';
 
 const FILTERS = {
   country: {
-    '--':'--',
+    '--': '--',
     au: 'au',
     de: 'de',
     gb: 'gb',
@@ -13,12 +13,12 @@ const FILTERS = {
     us: 'us',
   },
   language: {
-    '--':'--',
+    '--': '--',
     de: 'de',
     en: 'en',
   },
   category: {
-    '--':'--',
+    '--': '--',
     business: 'business',
     entertainment: 'entertainment',
     general: ' general',
@@ -93,19 +93,19 @@ export default class SourceList extends Component {
     const callBack = () => {
       this.fetchSources();
     };
-    if(name === 'filterKey') {
+    if (name === 'filterKey') {
       this.setState({
         currentFilter: {
           filterKey: value,
-        }
+        },
       });
     }
-    if( this.state.currentFilter.filterKey && name === 'filterValue') {
+    if (this.state.currentFilter.filterKey && name === 'filterValue') {
       this.setState({
         currentFilter: {
           filterKey: this.state.currentFilter.filterKey,
-          filterValue: value
-        }
+          filterValue: value,
+        },
       }, callBack);
     }
   }
