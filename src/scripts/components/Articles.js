@@ -21,25 +21,18 @@ export default class Articles extends Component {
     return (
       <div className="articles">
         <a href="/" ><h1 className="heading mb-2"><u>{articleHeadline}</u></h1></a>
-        <div className="row">
-          {this.props.articles && this.props.articles.map(article => (
-            <div className="card-group col-sm-6" key={article.title}>
-              <ul>
-                <div className="card-block">
-                  <a href={article.url} onClick={this.handleClick} target="iframe_a" >
-                    <h3 className="card-title">
-                      {article.title}
-                    </h3>
-                    <img
-                      className="img-thumbnail img-fluid"
-                      src={article.urlToImage}
-                      alt="storyImg"
-                    />
-                  </a><br />
-                  <p className="text-left">{article.description}</p>
-                </div>
-              </ul>
-            </div>))}
+        <div className="row">{this.props.articles && this.props.articles.map(article => (
+          <div className="card-group col-sm-6" key={article.title}>
+            <ul>
+              <div className="card-block">
+                <a href={article.url} onClick={this.handleClick} target="iframe_a" >
+                  <h3 className="card-title">{article.title}</h3>
+                  <img className="img-thumbnail img-fluid" src={article.urlToImage} alt="img" />
+                </a><br />
+                <p className="text-left">{article.description}</p>
+              </div>
+            </ul>
+          </div>))}
         </div>
       </div>
     );
