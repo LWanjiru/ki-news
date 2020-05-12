@@ -157,11 +157,8 @@ export default class SourceList extends Component {
                 onChange={this.handleChangeCategory}
                 defaultValue={this.state.currentFilter.filterKey}
               >
-                {Object.keys(this.state.filters).map(key => (
-                  <option key={key} value={key}>
-                    {key}
-                  </option>
-              ))}
+                {Object.keys(this.state.filters).map(key => (<option key={key} value={key}>
+                  {key}</option>))}
               </select>
               <select
                 className="form-control c-select"
@@ -170,43 +167,33 @@ export default class SourceList extends Component {
                 defaultValue={this.state.currentFilter.filterValue}
               >
                 {Object.keys(this.state.filters[this.state.currentFilter.filterKey]).map(key => (
-                  <option key={key} value={key}>
-                    {key}
-                  </option>
-                ))}
+                  <option key={key} value={key}>{key}</option>))}
               </select>
             </div>
             <br />
             <div className="p-2 text-right">
               <button className="toggler rounded pt-1" type="button" data-toggle="collapse" data-target="#sourceToggle" aria-controls="sourceToggle" aria-expanded="true" aria-label="Toggle navigation">
-                <span className="toggler-icon">
-                  <i className="fa fa-bars" style={{ color: '#5bc0de', fontSize: '24px' }} />
-                </span>
+                <span className="toggler-icon"><i className="fa fa-bars" style={{ color: '#5bc0de', fontSize: '24px' }} /></span>
               </button>
               <div className="text-left text-muted"><small>*Use toggle button to hide and view source list*</small></div>
             </div>
             {/* check the current state of sources and pass them into a function for rendering */}
-            <div id="sourceToggle" className="collapse show">
-              {this.state.sources && sourceFound.map(source => (
-                <div className="col-lg-12 col-md-12 btn-group-sm" >
-                  <button className="col col-md-12 btn btn-outline-info pb-0" key={source.id} onClick={() => { this.onSubmit(source.id); }}>
-                    <ul className="p-0">
-                      {/* button action calls the onSubmit function which changes the state */}
-                      <p className="my-auto pt-3 pb-1 text-truncate" style={{ fontSize: '.95em' }}><strong>{source.name}</strong></p>
-                    </ul>
-                  </button>
-                </div>
-              ))}
+            <div id="sourceToggle" className="collapse show">{this.state.sources && sourceFound.map(source => (
+              <div className="col-lg-12 col-md-12 btn-group-sm" >
+                <button className="col col-md-12 btn btn-outline-info pb-0" key={source.id} onClick={() => { this.onSubmit(source.id); }}>
+                  <ul className="p-0">
+                    {/* button action calls the onSubmit function which changes the state */}
+                    <p className="my-auto pt-3 pb-1 text-truncate" style={{ fontSize: '.95em' }}><strong>{source.name}</strong></p>
+                  </ul>
+                </button>
+              </div>))}
             </div>
           </div>
         </div>
         <div className="card-block card w-75 pt-5">
           {/* check if the articles exist and render them */}
-          <h6 className="float-right">
-            <mark className="">
-              <strong>Source:</strong>
-              <em> {this.state.sourceId}</em>
-            </mark>
+          <h6 className="float-right"><mark className=""><strong>Source:</strong>
+            <em> {this.state.sourceId}</em></mark>
           </h6>
           {this.state.articles && <Articles articles={this.state.articles} />}
         </div>
