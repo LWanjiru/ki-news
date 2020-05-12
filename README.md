@@ -41,4 +41,5 @@ A live version of the app is availabe on `Heroku` at https://ki-all-news.herokua
 
 [![Build Status](https://travis-ci.org/LWanjiru/ki-news.svg?branch=master)](https://travis-ci.org/LWanjiru/ki-news)
 [![Code Climate](https://codeclimate.com/github/LWanjiru/ki-news/badges/gpa.svg)](https://codeclimate.com/github/LWanjiru/ki-news)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
 [![Issue Count](https://codeclimate.com/github/LWanjiru/ki-news/badges/issue_count.svg)](https://codeclimate.com/github/LWanjiru/ki-news)
