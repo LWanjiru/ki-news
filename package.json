@@ -10,7 +10,6 @@
   "scripts": {
     "lint": "eslint *.json",
     "test": "jest",
-    "coveralls": "./node_modules/.bin/coveralls  < coverage/lcov.info",
     "build": "webpack -p",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "prod": "NODE_ENV=production node server.js"
@@ -19,7 +18,9 @@
     "unmockedModulePathPatterns": [
       "node_modules/react/",
       "node_modules/enzyme/"
-    ]
+    ],
+    "collectCoverage": true,
+    "coverageReporters": ["lcov"]
   },
   "repository": {
     "type": "git",
