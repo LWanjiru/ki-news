@@ -139,8 +139,8 @@ export default class SourceList extends Component {
     return (
       <div className="row">
         <div className="col-sm-3 card"><br />
-          <div className="source-card">
-            <h3><a href="/"><strong>{topHeading}</strong></a></h3>
+          <div className="source-card pb-5">
+            <h3 className="mt-3 mb-3"><a href="/"><strong>{topHeading}</strong></a></h3>
             <span><input
               type="text"
               className="form-control btn btn-outline-info"
@@ -161,7 +161,7 @@ export default class SourceList extends Component {
                   <option key={key} value={key}>
                     {key}
                   </option>
-          ))}
+              ))}
               </select>
               <select
                 className="form-control c-select"
@@ -173,27 +173,37 @@ export default class SourceList extends Component {
                   <option key={key} value={key}>
                     {key}
                   </option>
-          ))}
+                ))}
               </select>
             </div>
             <br />
+            <div className="p-2 text-right">
+              <button className="toggler rounded pt-1" type="button" data-toggle="collapse" data-target="#sourceToggle" aria-controls="sourceToggle" aria-expanded="true" aria-label="Toggle navigation">
+                <span className="toggler-icon">
+                  <i className="fa fa-bars" style={{ color: '#5bc0de', fontSize: '24px' }} />
+                </span>
+              </button>
+              <div className="text-left text-muted"><small>*Use toggle button to hide and view source list*</small></div>
+            </div>
             {/* check the current state of sources and pass them into a function for rendering */}
-            {this.state.sources && sourceFound.map(source => (
-              <div className="card" key={source.id}>
-                <button onClick={() => { this.onSubmit(source.id); }}>
-                  <ul>
-                    {/* button action calls the onSubmit function which changes the state */}
-                    <h5 className="card-title text-justify">{source.name}</h5>
-                  </ul>
-                </button>
-              </div>
-            ))}
+            <div id="sourceToggle" className="collapse show">
+              {this.state.sources && sourceFound.map(source => (
+                <div className="col-lg-12 col-md-12 btn-group-sm" >
+                  <button className="col col-md-12 btn btn-outline-info pb-0" key={source.id} onClick={() => { this.onSubmit(source.id); }}>
+                    <ul className="p-0">
+                      {/* button action calls the onSubmit function which changes the state */}
+                      <p className="my-auto pt-3 pb-1 text-truncate" style={{ fontSize: '.95em' }}><strong>{source.name}</strong></p>
+                    </ul>
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="card-block card w-75">
+        <div className="card-block card w-75 pt-5">
           {/* check if the articles exist and render them */}
           <h6 className="float-right">
-            <mark>
+            <mark className="">
               <strong>Source:</strong>
               <em> {this.state.sourceId}</em>
             </mark>

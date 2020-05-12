@@ -20,7 +20,7 @@ export default class Articles extends Component {
     const articleHeadline = 'Articles';
     return (
       <div className="articles">
-        <a href="/" ><h1 className="heading mb-2"><u>{articleHeadline}</u></h1></a>
+        <a href="/" ><h1 className="heading mb-2 mt-2"><u>{articleHeadline}</u></h1></a>
         <div className="row">{this.props.articles && this.props.articles.map(article => (
           <div className="card-group col-sm-6" key={article.title}>
             <ul>

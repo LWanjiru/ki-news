@@ -3,12 +3,12 @@ import React from 'react';
 
 const Header = () => {
   const header = 'KI-All News';
-  const imgWidth = 60;
+  const imgWidth = 40;
   return (
-    <nav className="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
-      <a className="navbar-brand" href="/">
-        <div className="row">
-          <div className="col-2 col-lg-4">
+    <nav className="navbar navbar-toggleable-md fixed-top" style={{ backgroundColor: 'black' }}>
+      <a className="navbar-brand col-12" href="/">
+        <div className="row" >
+          <div className="col-2 col-lg-1 mr-0 pr-0">
             <img
               src="./../../../../public/logo.jpg"
               width={imgWidth}
@@ -16,7 +16,7 @@ const Header = () => {
               alt="page logo"
             />
           </div>
-          <div className="col-2 col-lg-6 my-auto ">{header}</div>
+          <div className="col-2 my-auto m-1 text-white ml-lg-0 pl-lg-0">{header}</div>
         </div>
       </a>
     </nav>
