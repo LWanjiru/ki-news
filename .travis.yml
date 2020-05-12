@@ -2,14 +2,17 @@ language: node_js
 node_js:
   - '6'
 
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+  -  npm install
+
 script:
- - npm test
-
-before_install:
-  npm install
-
+  - npm test
+  
 env:
-  CODECLIMATE_REPO_TOKEN: 63dd40111983a5eb2e793fff88842e5936ec04c113d117202d387f392e9fd863
-
-after_success:
-  - npm run coveralls
+  global:
+    - CC_TEST_REPORTER_ID=63dd40111983a5eb2e793fff88842e5936ec04c113d117202d387f392e9fd863
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

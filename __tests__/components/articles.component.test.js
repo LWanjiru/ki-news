@@ -14,5 +14,4 @@ describe('Articles component', () => {
       <Articles articles={articles} />,
     );
   });
-
 });
