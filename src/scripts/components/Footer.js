@@ -13,7 +13,6 @@ const Footer = () => {
       <p>Know It All(KI-ALL) News</p>
       <p>Powered by <a href="https://newsapi.org/" target="_blank" rel="noopener noreferrer">NewsAPI</a></p>
       <p>&#169; {getYear()}</p>
-
     </div>
   );
 };
