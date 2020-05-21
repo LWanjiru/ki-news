@@ -3,10 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const AppCachePlugin = require('appcache-webpack-plugin');
-const dotenv = require('dotenv');
-
-
-const env = dotenv.config().parsed;
+const env = require('dotenv').config({ silent: process.env.NODE_ENV === 'production' }).parsed;
 
 const envKeys = Object.keys(env).reduce((prev, next) => { prev[`process.env.${next}`] = JSON.stringify(env[next]);
   return prev;
