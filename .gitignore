@@ -5,3 +5,4 @@ npm-debug.log
 .react-playground
 dist/
 coverage/
+.env

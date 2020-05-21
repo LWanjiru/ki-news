@@ -26,6 +26,7 @@ const FILTERS = {
   },
 };
 
+const apikey = process.env.REACT_API_KEY;
 export default class SourceList extends Component {
   /**
    * Creates an instance of SourceList.
@@ -77,7 +78,7 @@ export default class SourceList extends Component {
 
   fetchArticles() {
   // Fetch for articles related to the respective sourceId when called
-    const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&sortBy=latest&apiKey=999e8037764a4691ae09301f8a156405`;
+    const url = `https://newsapi.org/v1/articles?source=${this.state.sourceId}&sortBy=latest&apiKey=${apikey}`;
     Request
     .get(url)
     .then((response) => {
