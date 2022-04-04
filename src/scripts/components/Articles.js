@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
-
+// import { PropTypes } from 'prop-types';
 
 export default class Articles extends Component {
   /**
@@ -11,17 +10,17 @@ export default class Articles extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      articles: [],
+      // articles: [],
     };
   }
 
-
   render() {
     const articleHeadline = 'Articles';
+    const { articles } = this.props.articles;
     return (
       <div className="articles">
-        <a href="/" ><h1 className="heading mb-2 mt-2"><u>{articleHeadline}</u></h1></a>
-        <div className="row">{this.props.articles && this.props.articles.map(article => (
+        <a href="/"><h1 className="heading mb-2 mt-2"><u>{articleHeadline}</u></h1></a>
+        <div className="row">{articles && articles.map(article => (
           <div className="card-group col-sm-6" key={article.title}>
             <ul>
               <div className="card-block">
@@ -38,7 +37,7 @@ export default class Articles extends Component {
     );
   }
 }
-Articles.propTypes = {
-  articles: PropTypes.arrayOf(String),
-};
-Articles.defaultProps = null;
+// Articles.propTypes = {
+//   articles: PropTypes.arrayOf(String),
+// };
+// Articles.defaultProps = null;

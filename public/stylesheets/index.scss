@@ -1,10 +1,11 @@
-$color_1: white;
+$color_1: black;
 $font_family_1: Arial, Helvetica, sans-serif;
-$background_color_2: black;
+$background_color_2: white;
 
 body {
   background-color: $background_color_2;
   font-family: $font_family_1;
+  color: $color_1;
   padding-top: 70px;
 }
 

@@ -1,21 +1,21 @@
 import React from 'react';
+import logo from '../../../public/transparent-logo.png'
+
 
 const header = 'KI-All News';
 const imgWidth = 60;
-const navigate = (<nav className="navbar navbar-toggleable-md fixed-top" style={{ backgroundColor: 'black' }}>
-  <a className="navbar-brand col-12" href="/">
-    <div className="row" >
-      <div className="col-2 col-lg-1 mr-0 pr-0">
-        <img
-          src="./../../../../public/logo.jpg"
-          width={imgWidth}
-          className="card-inline-block align-top"
-          alt="page logo"
-        />
-      </div>
-      <div className="col-2 my-auto m-1 text-white ml-lg-0 pl-lg-0">{header}</div>
-    </div>
-  </a>
+const newLocal = <h2><img
+  src={logo}
+  width={imgWidth}
+  className=""
+  alt="page logo" /><span className=" ">{header}</span>
+</h2>;
+const navigate = (<nav className="navbar container-fluid navbar-expand-md fixed-top navbar-dark bg-dark" role="navigation">
+  <div className="container-fluid">
+    <a className="navbar-brand text-white" href="/">
+      {newLocal}
+    </a>
+  </div>
 </nav>);
 const Header = () => navigate;
 
